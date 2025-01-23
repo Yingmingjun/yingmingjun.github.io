@@ -275,3 +275,15 @@ footer {
     color:#444;
   }
 }
+
+.centered-equation {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.scaled-img {
+  max-width: 85%;
+  margin: 0 auto;
+  display: block;
+}
+

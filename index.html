@@ -105,6 +105,10 @@
         <li>Developed GPU-accelerated ray tracing algorithms achieving 100× speedup, enabling simulation of 10<sup>6</sup> rays in complex environments in under 3-5 seconds per TX-RX pair.</li>
         <li>Created 3D visualization tools for spatial channel analysis, including transmitter-receiver placement, antenna radiation patterns, and antenna orientation.</li>
       </ul>
+      <div style="text-align: center; margin: 20px 0;">
+        <img src="fig/RT_example.png" border="0" style="width: 85%; max-width: 900px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+        <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>NYURay Ray Tracing Visualization: 3D environment reconstruction with propagation path analysis</em></p>
+      </div>
 
       <h3>Waste Factor: A New Metric for Evaluating Power Efficiency in any Cascade (Jan. 2023 - Now)
       </h3>
@@ -224,22 +228,47 @@
         <li>Developed an automated framework generating ray-tracing-compatible 3D models with electromagnetic material properties from RGB video, reducing reconstruction time from months to a few hours.</li>
         <li>Integrated MASt3R-SLAM point cloud generation, PTv3 semantic segmentation, and Qwen3-VL vision-language model to automatically classify and label object materials.</li>
         <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline.</li>
-        <table style="width: 95%; table-layout: fixed;">
+      </ul>
+
+      <!-- System Overview -->
+      <div style="margin: 25px 0;">
+        <h4 style="text-align: center; color: #333; margin-bottom: 15px;">Point Cloud Generation System (MASt3R-SLAM)</h4>
+        <div style="text-align: center;">
+          <img src="fig/system-diagram.png" border="0" style="width: 75%; max-width: 800px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>MASt3R-SLAM workflow for generating 3D point clouds from RGB video sequences</em></p>
+        </div>
+      </div>
+
+      <!-- Pipeline Flowchart -->
+      <div style="margin: 25px 0;">
+        <h4 style="text-align: center; color: #333; margin-bottom: 15px;">Material-Aware Reconstruction Pipeline</h4>
+        <div style="text-align: center;">
+          <img src="fig/3dflowchart.png" border="0" style="width: 90%; max-width: 1000px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>End-to-end pipeline: RGB video → 3D reconstruction → semantic segmentation → material classification → ray tracing</em></p>
+        </div>
+      </div>
+
+      <!-- Processing Results -->
+      <div style="margin: 25px 0;">
+        <h4 style="text-align: center; color: #333; margin-bottom: 15px;">Point Cloud Processing Results</h4>
+        <table style="width: 95%; table-layout: fixed; margin: 0 auto;">
           <tr>
-            <td style="width: 30%; text-align: center;">
-              <img src="fig/noisy_pointcloud.png" border="0" style="width: 100%; display: block; margin: 0 auto;">
+            <td style="width: 33%; text-align: center; padding: 10px;">
+              <img src="fig/noisy_pointcloud.png" border="0" style="width: 100%; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+              <p style="margin-top: 8px; font-size: 13px; color: #666;"><strong>Raw Point Cloud</strong><br><em>Noisy output from MASt3R-SLAM</em></p>
             </td>
-            <td style="width: 30%; text-align: center;">
-              <img src="fig/clean_pointcloud.png" border="0" style="width: 100%; display: block; margin: 0 auto;">
+            <td style="width: 33%; text-align: center; padding: 10px;">
+              <img src="fig/clean_pointcloud.png" border="0" style="width: 100%; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+              <p style="margin-top: 8px; font-size: 13px; color: #666;"><strong>Cleaned Point Cloud</strong><br><em>After noise filtering and processing</em></p>
             </td>
-            <td style="width: 30%; text-align: center;">
-              <img src="fig/surface_normal.png" border="0" style="width: 100%; display: block; margin: 0 auto;">
+            <td style="width: 33%; text-align: center; padding: 10px;">
+              <img src="fig/surface_normal.png" border="0" style="width: 100%; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+              <p style="margin-top: 8px; font-size: 13px; color: #666;"><strong>Surface Normals</strong><br><em>Computed normals for ray tracing</em></p>
             </td>
           </tr>
         </table>
+      </div>
 
-      </ul>
-      
 <!--       <h3>Massive MIMO, mmWave MIMO, Spatial Modulation (Dec. 2022)
       </h3>
       <ul>

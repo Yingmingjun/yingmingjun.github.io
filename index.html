@@ -242,34 +242,42 @@
           <img src="fig/system-diagram.png" border="0" style="width: 100%; max-width: 800px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
           <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>MASt3R-SLAM workflow for generating 3D point clouds from RGB video sequences</em></p>
         </div>
-      </div>
+      <!-- </div>
         <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline.</li>
-      </ul>
-
-
-
-
-
+      </ul> -->
 
       <!-- Processing Results -->
       <div style="margin: 25px 0;">
-        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
-        <table style="width: 95%; table-layout: fixed; margin: 0 auto;">
+        <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline.
+        <table style="width: 95%; table-layout: fixed; margin: 0 auto; border-collapse: collapse;">
           <tr>
-            <td style="width: 33%; text-align: center; padding: 10px;">
-              <img src="fig/noisy_pointcloud.png" border="0" style="width: 100%; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-              <p style="margin-top: 8px; font-size: 13px; color: #666;"><strong>Raw Point Cloud</strong><br><em>Noisy output from MASt3R-SLAM</em></p>
+            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
+              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
+                <img src="fig/noisy_pointcloud_1.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
+              </div>
+              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(a)</strong> Raw point cloud with noise</p>
             </td>
-            <td style="width: 33%; text-align: center; padding: 10px;">
-              <img src="fig/clean_pointcloud.png" border="0" style="width: 100%; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-              <p style="margin-top: 8px; font-size: 13px; color: #666;"><strong>Cleaned Point Cloud</strong><br><em>After noise filtering and processing</em></p>
+            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
+              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
+                <img src="fig/clean_pointcloud_2.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
+              </div>
+              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(b)</strong> Cleaned point cloud</p>
             </td>
-            <td style="width: 33%; text-align: center; padding: 10px;">
-              <img src="fig/surface_normal.png" border="0" style="width: 100%; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-              <p style="margin-top: 8px; font-size: 13px; color: #666;"><strong>Surface Normals</strong><br><em>Computed normals for ray tracing</em></p>
+            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
+              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
+                <img src="fig/3d_segment_1.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
+              </div>
+              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(c)</strong> PTv3 segmented environment</p>
+            </td>
+            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
+              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
+                <img src="fig/vismart_3d4.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
+              </div>
+              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(d)</strong> Final RT-ready 3D model</p>
             </td>
           </tr>
         </table>
+        <p style="text-align: center; margin-top: 5px; margin-bottom: 0; font-size: 13px; color: #666;"><em><strong>Figure:</strong> HoRAMA automated 3D reconstruction pipeline from raw point cloud to RT-ready model</em></p>
       </div>
 
 <!--       <h3>Massive MIMO, mmWave MIMO, Spatial Modulation (Dec. 2022)

@@ -27,7 +27,7 @@
         <a href="https://yingmingjun.github.io/">Mingjun Ying</a>
 
       </h1>
-      <img src="data/selfie.jpg" alt="Logo" />
+      <img src="fig/selfie1.jpg" alt="Logo" />
       <p><strong>E-mail:</strong> yingmingjun [AT] nyu [DOT] edu<br>
         The best way to reach me is by email.
         <br>
@@ -95,6 +95,38 @@
 
       <h2>Projects</h2>
 
+      
+
+   <h3> Material-Aware 3D Reconstruction for Wireless Ray Tracing (Sept. 2024 - Now)
+      </h3>
+      <ul>
+        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
+            Prof. Theodore S. Rappaport </a> (IEEE Life Fellow) and  <a href="https://cs.nyu.edu/~fouhey/" target="_blank">
+              Prof. David Fouhey </a>
+        </li>
+
+        <li>Developed an automated framework generating ray-tracing-compatible 3D models with electromagnetic material properties from RGB video, reducing reconstruction time from months to a few hours.</li>
+              <!-- Pipeline Flowchart -->
+      <!-- <div style="margin: 25px 0;">
+        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
+        <div style="text-align: center;">
+          <img src="fig/3dflowchart.png" border="0" style="width: 70%; max-width: 1000px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>End-to-end 3D reconstruction pipeline</em></p>
+        </div>
+      </div> -->
+        <li>Integrated MASt3R-SLAM point cloud generation, PTv3 semantic segmentation, and Qwen3-VL vision-language model to automatically classify and label object materials.</li>
+
+        <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline.
+
+                    <!-- System Overview -->
+      <div style="margin: 25px 0;">
+        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
+        <div style="text-align: center;">
+          <img src="fig/HoRAMA.png" border="0" style="width: 100%; max-width: 800px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
+          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>MASt3R-SLAM workflow for generating 3D point clouds from RGB video sequences</em></p>
+        </div>
+
+
       <h3>NYURay: Python-Based Ray Tracer for Wireless Channel Prediction (Sept. 2024 - Now)
       </h3>
       <ul>
@@ -143,6 +175,10 @@
         </table>
 
       </ul>
+      
+
+
+
       
       
       <h3>FR3 Radio Propagation Measurement and Modeling in 6.75 GHz and 16.95 GHz (Nov. 2023 - Now)
@@ -215,41 +251,13 @@
 
 
 
-      
-
-   <h3> Material-Aware 3D Reconstruction for Wireless Ray Tracing (Sept. 2023 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-            Prof. Theodore S. Rappaport </a> (IEEE Life Fellow) and  <a href="https://cs.nyu.edu/~fouhey/" target="_blank">
-              Prof. David Fouhey </a>
-        </li>
-
-        <li>Developed an automated framework generating ray-tracing-compatible 3D models with electromagnetic material properties from RGB video, reducing reconstruction time from months to a few hours.</li>
-              <!-- Pipeline Flowchart -->
-      <div style="margin: 25px 0;">
-        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
-        <div style="text-align: center;">
-          <img src="fig/3dflowchart.png" border="0" style="width: 70%; max-width: 1000px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>End-to-end 3D reconstruction pipeline</em></p>
-        </div>
-      </div>
-        <li>Integrated MASt3R-SLAM point cloud generation, PTv3 semantic segmentation, and Qwen3-VL vision-language model to automatically classify and label object materials.</li>
-                    <!-- System Overview -->
-      <div style="margin: 25px 0;">
-        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
-        <div style="text-align: center;">
-          <img src="fig/system-diagram.png" border="0" style="width: 100%; max-width: 800px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>MASt3R-SLAM workflow for generating 3D point clouds from RGB video sequences</em></p>
-        </div>
       <!-- </div>
         <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline.</li>
       </ul> -->
 
       <!-- Processing Results -->
-      <div style="margin: 25px 0;">
-        <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline.
-        <table style="width: 95%; table-layout: fixed; margin: 0 auto; border-collapse: collapse;">
+
+        <!-- <table style="width: 95%; table-layout: fixed; margin: 0 auto; border-collapse: collapse;">
           <tr>
             <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
               <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
@@ -276,9 +284,9 @@
               <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(d)</strong> Final RT-ready 3D model</p>
             </td>
           </tr>
-        </table>
-        <p style="text-align: center; margin-top: 5px; margin-bottom: 0; font-size: 13px; color: #666;"><em><strong>Figure:</strong> HoRAMA automated 3D reconstruction pipeline from raw point cloud to RT-ready model</em></p>
-      </div>
+        </table> -->
+        <!-- <p style="text-align: center; margin-top: 5px; margin-bottom: 0; font-size: 13px; color: #666;"><em><strong>Figure:</strong> HoRAMA automated 3D reconstruction pipeline from raw point cloud to RT-ready model</em></p> -->
+
 
 <!--       <h3>Massive MIMO, mmWave MIMO, Spatial Modulation (Dec. 2022)
       </h3>
@@ -363,7 +371,7 @@
 
       <h3>Journal Articles</h3>
       <ul class="publication-list">
-        <li><span class="pub-label">[J1]</span><strong>M. Ying</strong>, D. Shakya, P. Ma, G. Qian, and T. S. Rappaport, "Site-Specific Location Calibration and Validation of Ray-Tracing Simulator NYURay at Upper Mid-Band Frequencies," <em>npj Wireless Technology</em> (in major revision), Jul. 2025. <a href="https://arxiv.org/pdf/2507.22027" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025nyuray')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[J1]</span><strong>M. Ying</strong>, D. Shakya, P. Ma, G. Qian, and T. S. Rappaport, "Site-Specific Location Calibration and Validation of Ray-Tracing Simulator NYURay at Upper Mid-Band Frequencies," <em>npj Wireless Technology</em>, Mar. 2026. <a href="https://arxiv.org/pdf/2507.22027" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025nyuray')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[J2]</span>A. Bazzi, <strong>M. Ying</strong>, O. Kanhere, T. S. Rappaport, and M. Chafii, "ISAC Imaging by Channel State Information Using Ray Tracing for Next Generation 6G," <em>IEEE Journal of Selected Topics in Electromagnetics, Antennas and Propagation</em>, 2025. <a href="https://doi.org/10.1109/JSTEAP.2025.3605877" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('bazzi2025isac')" class="bib-link">[BibTeX]</a></li>
 
@@ -376,39 +384,43 @@
 
       <h3>Conference Papers</h3>
       <ul class="publication-list">
-        <li><span class="pub-label">[C1]</span><strong>M. Ying</strong>, P. Ma, D. Shakya, and T. S. Rappaport, "Multi-Stage Location Optimization Through Power Delay Profile Alignment Using Site-Specific Wireless Ray Tracing," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025 (accepted). <a href="https://arxiv.org/pdf/2509.11923" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025globecom')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C1]</span><strong>M. Ying</strong>, G. Qian, X. Wang, P. Ma, D. Shakya, and T. S. Rappaport, "HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay," <em>IEEE International Conference on Communications (ICC)</em>, Glasgow, UK, Jun. 2026, pp. 1–6 (accepted). [PDF] <a href="javascript:void(0)" onclick="showBibTeX('ying2026icc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C2]</span>S. Jia, <strong>M. Ying</strong>, et al., "Joint Detection, Channel Estimation and Interference Nulling for Terrestrial-Satellite Downlink Co-Existence in the Upper Mid-Band," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025 (accepted). <a href="https://arxiv.org/pdf/2510.08824" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('jia2025globecom')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C2]</span>S. Jia, <strong>M. Ying</strong>, et al., "Distributed Uplink Anti-Jamming in LEO Mega-Constellations via Game-Theoretic Beamforming," <em>IEEE International Conference on Communications (ICC)</em>, Glasgow, UK, Jun. 2026, pp. 1–6 (accepted). [PDF] <a href="javascript:void(0)" onclick="showBibTeX('jia2026icc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C3]</span><strong>M. Ying</strong>, D. Shakya, T. S. Rappaport, P. Ma, Y. Wang, I. Al-Wazani, Y. Wu, and H. Poddar, "Upper Mid-Band Channel Measurements and Characterization at 6.75 GHz FR1(C) and 16.95 GHz FR3 in an Indoor Factory Scenario," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3303-3308. <a href="https://ieeexplore.ieee.org/document/11160744" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025icc')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C3]</span><strong>M. Ying</strong>, P. Ma, D. Shakya, and T. S. Rappaport, "Multi-Stage Location Optimization Through Power Delay Profile Alignment Using Site-Specific Wireless Ray Tracing," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025 (accepted). <a href="https://arxiv.org/pdf/2509.11923" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025globecom')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C4]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, P. Ma, I. Al-Wazani, Y. Wu, Y. Wang, D. Calin, H. Poddar, A. Bazzi, M. Chafii, Y. Xing, and A. Ghosh, "Urban Outdoor Propagation Measurements and Channel Models at 6.75 GHz FR1(C) and 16.95 GHz FR3 Upper Mid-band Spectrum for 5G and 6G," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3291-3296. <a href="https://ieeexplore.ieee.org/document/11161884" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025icc')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C4]</span>S. Jia, <strong>M. Ying</strong>, et al., "Joint Detection, Channel Estimation and Interference Nulling for Terrestrial-Satellite Downlink Co-Existence in the Upper Mid-Band," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025 (accepted). <a href="https://arxiv.org/pdf/2510.08824" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('jia2025globecom')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C5]</span>T. S. Rappaport, D. Shakya, and <strong>M. Ying</strong>, "Point Data for Site-Specific Mid-band Radio Propagation Channel Statistics in the Indoor Hotspot (InH) Environment for 3GPP and Next Generation Alliance (NGA) Channel Modeling," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3285-3290. <a href="https://ieeexplore.ieee.org/document/11161652" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('rappaport2025icc')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C5]</span><strong>M. Ying</strong>, D. Shakya, T. S. Rappaport, P. Ma, Y. Wang, I. Al-Wazani, Y. Wu, and H. Poddar, "Upper Mid-Band Channel Measurements and Characterization at 6.75 GHz FR1(C) and 16.95 GHz FR3 in an Indoor Factory Scenario," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3303-3308. <a href="https://ieeexplore.ieee.org/document/11160744" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025icc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C6]</span>D. Shakya, <strong>M. Ying</strong>, and T. S. Rappaport, "Angular Spread Statistics for 6.75 GHz FR1(C) and 16.95 GHz FR3 Mid-Band Frequencies in an Indoor Hotspot Environment," <em>IEEE Wireless Communications and Networking Conference (WCNC)</em>, Milan, Italy, Mar. 2025, pp. 1–6. <a href="https://ieeexplore.ieee.org/abstract/document/10978475" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025wcnc')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C6]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, P. Ma, I. Al-Wazani, Y. Wu, Y. Wang, D. Calin, H. Poddar, A. Bazzi, M. Chafii, Y. Xing, and A. Ghosh, "Urban Outdoor Propagation Measurements and Channel Models at 6.75 GHz FR1(C) and 16.95 GHz FR3 Upper Mid-band Spectrum for 5G and 6G," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3291-3296. <a href="https://ieeexplore.ieee.org/document/11161884" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025icc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C7]</span>D. Shakya, N. A. Abbasi, <strong>M. Ying</strong>, I. Jariwala, J. J. Qin, I. S. Gupte, B. Meier, G. Qian, D. Abraham, T. S. Rappaport, and A. F. Molisch, "Standardized Machine-Readable Point-Data Format for Consolidating Wireless Propagation Across Environments, Frequencies, and Institutions," <em>IEEE MILCOM</em>, Los Angeles, USA, Oct. 2025, pp. 1–6 (accepted). <a href="https://arxiv.org/pdf/2510.00141" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025pointdata')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C7]</span>T. S. Rappaport, D. Shakya, and <strong>M. Ying</strong>, "Point Data for Site-Specific Mid-band Radio Propagation Channel Statistics in the Indoor Hotspot (InH) Environment for 3GPP and Next Generation Alliance (NGA) Channel Modeling," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3285-3290. <a href="https://ieeexplore.ieee.org/document/11161652" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('rappaport2025icc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C8]</span><strong>M. Ying</strong>, F. B. Sarpkaya, S. Bakirtas, E. Erkip, T. S. Rappaport, and S. Rangan, "Capacity of a Binary Channel with a Time-Bounded Adversary," <em>58th Asilomar Conference on Signals, Systems, and Computers</em>, Pacific Grove, CA, USA, Oct. 2024, pp. 801–805. <a href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024asilomar')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C8]</span>D. Shakya, <strong>M. Ying</strong>, and T. S. Rappaport, "Angular Spread Statistics for 6.75 GHz FR1(C) and 16.95 GHz FR3 Mid-Band Frequencies in an Indoor Hotspot Environment," <em>IEEE Wireless Communications and Networking Conference (WCNC)</em>, Milan, Italy, Mar. 2025, pp. 1–6. <a href="https://ieeexplore.ieee.org/abstract/document/10978475" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025wcnc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C9]</span><strong>M. Ying</strong>, D. Shakya, and T. S. Rappaport, "Using Waste Factor to Optimize Energy Efficiency in Multiple-Input Single-Output (MISO) and Multiple-Input Multiple-Output (MIMO) Systems," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1–6. <a href="https://arxiv.org/pdf/2405.01352" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024globecom')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C9]</span>D. Shakya, N. A. Abbasi, <strong>M. Ying</strong>, I. Jariwala, J. J. Qin, I. S. Gupte, B. Meier, G. Qian, D. Abraham, T. S. Rappaport, and A. F. Molisch, "Standardized Machine-Readable Point-Data Format for Consolidating Wireless Propagation Across Environments, Frequencies, and Institutions," <em>IEEE MILCOM</em>, Los Angeles, USA, Oct. 2025, pp. 1–6 (accepted). <a href="https://arxiv.org/pdf/2510.00141" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025pointdata')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C10]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, H. Poddar, P. Ma, Y. Wang, and I. Al-Wazani, "Propagation Measurements and Channel Models in Indoor Environment at 6.75 GHz FR1(C) and 16.95 GHz FR3 Upper-Mid Band Spectrum for 5G and 6G," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1–6. <a href="https://arxiv.org/pdf/2405.01358" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2024globecom1')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C10]</span><strong>M. Ying</strong>, F. B. Sarpkaya, S. Bakirtas, E. Erkip, T. S. Rappaport, and S. Rangan, "Capacity of a Binary Channel with a Time-Bounded Adversary," <em>58th Asilomar Conference on Signals, Systems, and Computers</em>, Pacific Grove, CA, USA, Oct. 2024, pp. 801–805. <a href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024asilomar')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C11]</span>D. Shakya, T. S. Rappaport, E. Shieh, M. E. Knox, H. Rahmani, D. Shahrjerdi, <strong>M. Ying</strong>, K. Fan, M. Lu, A. Rumiantsev, V. Mallette, G. Fisher, G. De Chirico, P. Ghate, and S. McMahon, "Four-Port Probe Stations and SOLR Calibration Standard Design Up to 125 GHz on 28 nm CMOS," <em>IEEE Asia Pacific Microwave Conference</em>, South Korea, Dec. 2025, pp. 1–3 (accepted). <a href="https://arxiv.org/pdf/2510.00435" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025probe')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C11]</span><strong>M. Ying</strong>, D. Shakya, and T. S. Rappaport, "Using Waste Factor to Optimize Energy Efficiency in Multiple-Input Single-Output (MISO) and Multiple-Input Multiple-Output (MIMO) Systems," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1–6. <a href="https://arxiv.org/pdf/2405.01352" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024globecom')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C12]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, H. Poddar, P. Ma, Y. Wang, and I. Al-Wazani, "Wideband Penetration Loss through Building Materials and Partitions at 6.75 GHz in FR1(C) and 16.95 GHz in the FR3 Upper Mid-band Spectrum," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1–6. <a href="https://arxiv.org/pdf/2405.01362" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2024globecom2')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C12]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, H. Poddar, P. Ma, Y. Wang, and I. Al-Wazani, "Propagation Measurements and Channel Models in Indoor Environment at 6.75 GHz FR1(C) and 16.95 GHz FR3 Upper-Mid Band Spectrum for 5G and 6G," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1–6. <a href="https://arxiv.org/pdf/2405.01358" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2024globecom1')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C13]</span><strong>M. Ying</strong>, D. Shakya, H. Poddar, and T. S. Rappaport, "Waste Factor: A New Metric for Evaluating Power Efficiency in Any Cascade," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Kuala Lumpur, Malaysia, Dec. 2023, pp. 6735–6740. <a href="https://ieeexplore.ieee.org/document/10436843" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2023globecom')" class="bib-link">[BibTeX]</a> <strong>(Best Paper Award)</strong></li>
+        <li><span class="pub-label">[C13]</span>D. Shakya, T. S. Rappaport, E. Shieh, M. E. Knox, H. Rahmani, D. Shahrjerdi, <strong>M. Ying</strong>, K. Fan, M. Lu, A. Rumiantsev, V. Mallette, G. Fisher, G. De Chirico, P. Ghate, and S. McMahon, "Four-Port Probe Stations and SOLR Calibration Standard Design Up to 125 GHz on 28 nm CMOS," <em>IEEE Asia Pacific Microwave Conference</em>, South Korea, Dec. 2025, pp. 1–3 (accepted). <a href="https://arxiv.org/pdf/2510.00435" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025probe')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C14]</span><strong>M. Ying</strong> and S. Wang, "Self-Optimizing Water-Filling Power Allocation: A Hybrid Fractional Frequency Reuse Way," <em>2022 13th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP)</em>, Porto, Portugal, Jul. 2022, pp. 208–213. <a href="https://ieeexplore.ieee.org/document/9908038" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022csndsp')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C14]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, H. Poddar, P. Ma, Y. Wang, and I. Al-Wazani, "Wideband Penetration Loss through Building Materials and Partitions at 6.75 GHz in FR1(C) and 16.95 GHz in the FR3 Upper Mid-band Spectrum," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1–6. <a href="https://arxiv.org/pdf/2405.01362" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2024globecom2')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C15]</span><strong>M. Ying</strong> and S. Wang, "Capacity Analysis and Hybrid Power Allocation for Multi-cell 5G Networks," <em>2022 11th International Conference on Communications, Circuits and Systems (ICCCAS)</em>, Singapore, Dec. 2022, pp. 192–197. <a href="https://ieeexplore.ieee.org/document/9824531" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022icccas')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C15]</span><strong>M. Ying</strong>, D. Shakya, H. Poddar, and T. S. Rappaport, "Waste Factor: A New Metric for Evaluating Power Efficiency in Any Cascade," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Kuala Lumpur, Malaysia, Dec. 2023, pp. 6735–6740. <a href="https://ieeexplore.ieee.org/document/10436843" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2023globecom')" class="bib-link">[BibTeX]</a> <strong>(Best Paper Award)</strong></li>
 
-        <li><span class="pub-label">[C16]</span>Y. Lian, <strong>M. Ying</strong>, S. Wang, and Y. Wang, "An Efficient Maximum Subcarrier Power Detection Scheme for OFDM-IM Systems," <em>2023 International Wireless Communications and Mobile Computing (IWCMC)</em>, Marrakesh, Morocco, Jun. 2023, pp. 258–263. <a href="https://ieeexplore.ieee.org/document/10182569" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('lian2023iwcmc')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C16]</span><strong>M. Ying</strong> and S. Wang, "Self-Optimizing Water-Filling Power Allocation: A Hybrid Fractional Frequency Reuse Way," <em>2022 13th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP)</em>, Porto, Portugal, Jul. 2022, pp. 208–213. <a href="https://ieeexplore.ieee.org/document/9908038" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022csndsp')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C17]</span>Y. Lian, <strong>M. Ying</strong>, S. Wang, and Y. Wang, "An Efficient Fast Walsh-Hadamard Transform Based OFDM-IM Scheme with Lower PAPR," <em>2023 Wireless Telecommunications Symposium (WTS)</em>, Boston, MA, USA, Apr. 2023, pp. 1–6. <a href="https://ieeexplore.ieee.org/document/10131676" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('lian2023wts')" class="bib-link">[BibTeX]</a></li>
+        <li><span class="pub-label">[C17]</span><strong>M. Ying</strong> and S. Wang, "Capacity Analysis and Hybrid Power Allocation for Multi-cell 5G Networks," <em>2022 11th International Conference on Communications, Circuits and Systems (ICCCAS)</em>, Singapore, Dec. 2022, pp. 192–197. <a href="https://ieeexplore.ieee.org/document/9824531" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022icccas')" class="bib-link">[BibTeX]</a></li>
+
+        <li><span class="pub-label">[C18]</span>Y. Lian, <strong>M. Ying</strong>, S. Wang, and Y. Wang, "An Efficient Maximum Subcarrier Power Detection Scheme for OFDM-IM Systems," <em>2023 International Wireless Communications and Mobile Computing (IWCMC)</em>, Marrakesh, Morocco, Jun. 2023, pp. 258–263. <a href="https://ieeexplore.ieee.org/document/10182569" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('lian2023iwcmc')" class="bib-link">[BibTeX]</a></li>
+
+        <li><span class="pub-label">[C19]</span>Y. Lian, <strong>M. Ying</strong>, S. Wang, and Y. Wang, "An Efficient Fast Walsh-Hadamard Transform Based OFDM-IM Scheme with Lower PAPR," <em>2023 Wireless Telecommunications Symposium (WTS)</em>, Boston, MA, USA, Apr. 2023, pp. 1–6. <a href="https://ieeexplore.ieee.org/document/10131676" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('lian2023wts')" class="bib-link">[BibTeX]</a></li>
       </ul>
       
       <h3>Patents</h3>
@@ -570,12 +582,34 @@
 
   <script>
     const bibEntries = {
+      "ying2026icc": `@inproceedings{ying2026icc,
+  title={HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay},
+  author={Ying, Mingjun and Qian, Guanyue and Wang, Xinquan and Ma, Peijie and Shakya, Dipankar and Rappaport, Theodore S.},
+  booktitle={IEEE International Conference on Communications (ICC)},
+  pages={1--6},
+  address={Glasgow, UK},
+  month=jun,
+  year={2026},
+  publisher={IEEE},
+  note={accepted}
+}`,
+      "jia2026icc": `@inproceedings{jia2026icc,
+  title={Distributed Uplink Anti-Jamming in LEO Mega-Constellations via Game-Theoretic Beamforming},
+  author={Jia, Shizhen and Ying, Mingjun and others},
+  booktitle={IEEE International Conference on Communications (ICC)},
+  pages={1--6},
+  address={Glasgow, UK},
+  month=jun,
+  year={2026},
+  publisher={IEEE},
+  note={accepted}
+}`,
       "ying2025nyuray": `@article{ying2025nyuray,
   title={Site-Specific Location Calibration and Validation of Ray-Tracing Simulator NYURay at Upper Mid-Band Frequencies},
   author={Ying, Mingjun and Shakya, Dipankar and Ma, Peijie and Qian, Guanyue and Rappaport, Theodore S.},
   journal={npj Wireless Technology},
-  note={in major revision},
-  year={2025}
+  month={March},
+  year={2026}
 }`,
       "bazzi2025isac": `@article{bazzi2025isac,
   title={ISAC Imaging by Channel State Information Using Ray Tracing for Next Generation 6G},

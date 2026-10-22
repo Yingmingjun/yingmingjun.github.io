@@ -1,364 +1,421 @@
 <!doctype html>
 <html lang="en">
-
-
 <head>
-  <meta name="google-site-verification" content="GNd81tP4kadfwV6ojS4zCU1re8ZwH4t2wgpDkQ4q6Ik" />
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="GNd81tP4kadfwV6ojS4zCU1re8ZwH4t2wgpDkQ4q6Ik" />
   <title>Mingjun Ying</title>
-  <meta name="description" content="Mingjun Ying, Ph.D. candidate at NYU WIRELESS. Research: wireless ray tracing, material-aware 3D reconstruction and digital twins, upper mid-band channel measurement and modeling, AI for wireless, Waste Factor energy efficiency.">
+  <meta name="description" content="Mingjun Ying, Ph.D. candidate at NYU WIRELESS. Research: wireless ray tracing, material-aware 3D reconstruction and digital twins, upper mid-band channel measurement and modeling, AI for wireless, RIS, Waste Factor energy efficiency.">
   <meta name="author" content="Mingjun Ying">
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --accent: #57068c;
+      --accent-soft: #f3ecf8;
+      --text: #1f2328;
+      --muted: #5c6370;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --bg-alt: #f8f8fa;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body { margin: 0; background: var(--bg); color: var(--text);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; }
 
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-  <meta name="viewport" content="width=device-width">
-  <script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+    /* nav */
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.95);
+      backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex;
+      align-items: center; gap: 24px; height: 56px; }
+    .brand { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .nav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { color: var(--muted); padding: 6px 10px; border-radius: 6px; font-size: 14.5px; white-space: nowrap; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
 
+    main { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 44px 0 8px; }
+    h2 { font-size: 26px; margin: 0 0 18px; padding-bottom: 8px; border-bottom: 2px solid var(--accent-soft); }
+    h3 { font-size: 17px; margin: 0 0 4px; }
+
+    /* hero */
+    .hero { display: grid; grid-template-columns: 220px 1fr; gap: 36px; padding-top: 40px; align-items: start; }
+    .hero img { width: 220px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+    .hero h1 { font-size: 36px; margin: 0; line-height: 1.2; }
+    .role { font-size: 18px; color: var(--muted); margin: 6px 0 14px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+    .btn { display: inline-block; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+      font-size: 14px; color: var(--text); background: #fff; }
+    .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn.primary:hover { color: #fff; opacity: .9; }
+    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 10px 14px;
+      border-radius: 6px; font-weight: 600; margin: 14px 0 0; }
+    .interests { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag { font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--bg-alt); border: 1px solid var(--line); color: var(--muted); }
+
+    /* two-column helpers */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .timeline { list-style: none; padding: 0; margin: 0; }
+    .timeline li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .timeline li:last-child { border-bottom: 0; }
+    .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
+    .sub { color: var(--muted); font-size: 14.5px; grid-column: 1 / -1; }
+
+    /* news */
+    .news { list-style: none; padding: 0; margin: 0; }
+    .news li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+    .news .date { color: var(--accent); font-weight: 600; font-size: 14px; padding-top: 1px; }
+    .news li.extra { display: none; }
+    .news.show-all li.extra { display: grid; }
+    .more { margin-top: 10px; background: none; border: 0; color: var(--accent); cursor: pointer; font-size: 14.5px; padding: 0; }
+
+
+    /* research rows */
+    .themes { display: flex; flex-wrap: wrap; gap: 8px; margin: -4px 0 8px; }
+    .themes a { font-size: 14px; padding: 4px 12px; border-radius: 999px; background: var(--bg-alt); border: 1px solid var(--line); color: var(--text); }
+    .themes a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    h3.theme { font-size: 19px; color: var(--accent); margin: 30px 0 12px; }
+    .proj { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 16px; }
+    .proj-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+    .proj-head h4 { font-size: 17px; margin: 0; }
+    .meta { color: var(--muted); font-size: 13.5px; }
+    .proj ul, .earlier ul { margin: 8px 0 10px; padding-left: 20px; font-size: 15px; }
+    .proj li { margin: 3px 0; }
+    .gallery { display: grid; gap: 10px; margin: 6px 0 4px; }
+    .g2 { grid-template-columns: repeat(2, 1fr); }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .g4 { grid-template-columns: repeat(4, 1fr); }
+    .g5 { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
+    .g3 .wide { grid-column: span 1; }
+    .gallery figure { margin: 0; cursor: zoom-in; }
+    .gallery img { width: 100%; height: 150px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 6px; transition: box-shadow .15s; }
+    .gallery img.photo { object-fit: cover; }
+    .gallery figure:hover img { box-shadow: 0 3px 12px rgba(0,0,0,.12); }
+    .gallery figcaption { font-size: 12.5px; color: var(--muted); text-align: center; margin-top: 4px; line-height: 1.3; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .chip { font-size: 13px; padding: 3px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); border: 0; cursor: pointer; font-family: inherit; }
+    .chip:hover { text-decoration: none; filter: brightness(.95); }
+    .earlier { margin-top: 8px; border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 18px; }
+    .earlier > summary { font-weight: 600; cursor: pointer; }
+    .earlier h4 { margin: 14px 0 2px; font-size: 15.5px; }
+    #lightbox img { width: 100%; max-height: 78vh; object-fit: contain; }
+    #lightbox .cap { text-align: center; color: var(--muted); margin-top: 8px; font-size: 14px; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); border: 0; background: rgba(255,255,255,.85); font-size: 28px; width: 40px; height: 56px; cursor: pointer; border-radius: 6px; }
+    .lb-prev { left: 8px; } .lb-next { right: 8px; }
+
+    /* publications */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .filters button { font: inherit; font-size: 14px; padding: 5px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--text); }
+    .filters button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .pub-group h3 { margin: 18px 0 8px; color: var(--muted); font-size: 15px; text-transform: uppercase; letter-spacing: .04em; }
+    .publication-list { list-style: none; padding: 0; margin: 0; }
+    .publication-list li { padding: 8px 0 8px 52px; position: relative; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .publication-list li.hidden { display: none; }
+    .pub-label { position: absolute; left: 0; top: 8px; font-weight: 700; color: var(--accent); font-size: 13.5px; }
+    .publication-list a { font-size: 14px; }
+    .bib-link { cursor: pointer; margin-left: 4px; }
+    .award { color: #b45309; font-weight: 700; }
+
+    /* honors / service */
+    .plain { padding-left: 18px; margin: 6px 0 0; }
+    .plain li { margin: 4px 0; }
+    h4 { margin: 0 0 4px; font-size: 15.5px; }
+
+    footer { max-width: 1080px; margin: 40px auto 0; padding: 18px 20px 30px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
+
+    /* modals */
+    .modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.55); align-items: center; justify-content: center; padding: 20px; }
+    .modal.open { display: flex; }
+    .modal-box { background: #fff; border-radius: var(--radius); max-width: 960px; width: 100%; max-height: 90vh; overflow: auto; padding: 18px; position: relative; }
+    .modal-close { position: absolute; top: 6px; right: 12px; font-size: 26px; border: 0; background: none; cursor: pointer; color: var(--muted); }
+    .modal video, .modal iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 6px; background: #000; }
+    .bib-text { font-family: ui-monospace, Menlo, monospace; background: var(--bg-alt); padding: 14px; border-radius: 6px; white-space: pre-wrap; font-size: 12.5px; }
+    .copy-btn { margin-top: 10px; padding: 7px 16px; background: var(--accent); color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 18px; text-align: left; }
+      .hero img { width: 160px; }
+      .grid2 { grid-template-columns: 1fr; }
+      .g3, .g4, .g5 { grid-template-columns: repeat(2, 1fr); }
+      .g5 .wide { grid-column: span 2; }
+      .gallery img { height: 120px; }
+      .brand { display: none; }
+      .nav-links { margin-left: 0; }
+      .news li { grid-template-columns: 80px 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <a href="https://yingmingjun.github.io/">Mingjun Ying</a>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="#about">Mingjun Ying</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#honors">Honors</a>
+        <a href="#service">Service</a>
+        <a href="data/CV_Mingjun_YING.pdf" target="_blank">CV</a>
+      </div>
+    </div>
+  </nav>
 
-      </h1>
-      <img src="fig/selfie1.jpg" alt="Logo" />
-      <p><strong>E-mail:</strong> yingmingjun [AT] nyu [DOT] edu<br>
-        The best way to reach me is by email.
-        <br>
-
-
-        <strong><a href="https://github.com/Yingmingjun" target="_blank">GitHub&nbsp&nbsp </a></strong>
-        <strong><a href="https://scholar.google.com/citations?user=aY6IANwAAAAJ&hl=en"
-            target="_blank">Google Scholar&nbsp&nbsp</a></strong>
-            <strong><a href="https://www.linkedin.com/in/mingjun-ying-8a590a24a/"
-              target="_blank">Linkedin&nbsp&nbsp</a></strong>
-
-        <strong><a href="data/CV_Mingjun_YING.pdf" target="_blank">CV</a></strong>
-
-
-
-      </p>
-
-
-
-    </header>
-
-    <section>
-      <h1>Biography</h1>
-
-
-
-      <p>I am currently a Ph.D. candidate at <a href="https://wireless.engineering.nyu.edu/" target="_blank">
-        NYU WIRELESS</a>, New York University, under the supervision of
-        <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-          Prof. Theodore S. Rappaport</a>. I received my M.S. degree in Electrical Engineering from New York University in May 2025
-          (<a href="https://www.proquest.com/docview/3219265391?pq-origsite=gscholar&fromopenview=true&sourcetype=Dissertations%20&%20Theses" target="_blank">Thesis</a>).
-          I hold a B.E. (Hons.) degree from <a href="http://english.cqupt.edu.cn/" target="_blank">
-          Chongqing University of Posts and Telecommunications</a>, where I was under the guidance of
-          <a href="https://www.scholat.com/xuyongjun.en" target="_blank">Prof. Yongjun Xu</a>
-          during my undergraduate studies.</p>
-
-      <p><strong>I am seeking full-time industry, postdoctoral, and internship positions starting in 2027.</strong></p>
-
-      <h2>News</h2>
-      <ul>
-        <li><strong>[Oct. 2026]</strong> U.S. national-phase patent application filed on Waste Factor based power reduction.</li>
-        <li><strong>[Aug. 2026]</strong> Two papers accepted at IEEE GLOBECOM 2026, Macau: SPARC ray-tracing calibration (first author) and uncertainty-aware indoor localization.</li>
-        <li><strong>[Jul. 2026]</strong> RIS outdoor-to-indoor coverage paper accepted at Asilomar 2026 (first author).</li>
-        <li><strong>[Jun. 2026]</strong> Paper on liquid crystal antennas and liquid neural networks for hybrid beamforming at IEEE VTC-Spring 2026, Nice.</li>
-        <li><strong>[May 2026]</strong> Two U.S. patent applications filed: 3D environment replicas for AI, and ISAC imaging by CSI.</li>
-        <li><strong>[May 2026]</strong> Three papers at IEEE ICC 2026, including HoRAMA (first author).</li>
-        <li><strong>[Mar. 2026]</strong> NYURay calibration and validation paper published in <em>npj Wireless Technology</em>.</li>
-      </ul>
-
-
-
-
-      </p>
-      <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
-      <h1>Research</h1>
-
-      <p>My research interests include wireless ray tracing, material-aware 3D reconstruction and digital twins,
-        channel measurement and modeling in the upper mid-band, AI for wireless, reconfigurable intelligent surfaces (RIS), and energy efficiency (Waste Factor).</p>
-
-      <h2>Projects</h2>
-
-      
-
-   <h3> Material-Aware 3D Reconstruction for Wireless Ray Tracing (Sept. 2024 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-            Prof. Theodore S. Rappaport </a> (IEEE Life Fellow) and  <a href="https://cs.nyu.edu/~fouhey/" target="_blank">
-              Prof. David Fouhey </a>
-        </li>
-
-        <li>Developed an automated framework generating ray-tracing-compatible 3D models with electromagnetic material properties from RGB video, reducing reconstruction time from months to a few hours.</li>
-              <!-- Pipeline Flowchart -->
-      <!-- <div style="margin: 25px 0;">
-        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
-        <div style="text-align: center;">
-          <img src="fig/3dflowchart.png" border="0" style="width: 70%; max-width: 1000px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>End-to-end 3D reconstruction pipeline</em></p>
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="hero">
+      <img src="fig/selfie1.jpg" alt="Mingjun Ying">
+      <div>
+        <h1>Mingjun Ying</h1>
+        <div class="role">Ph.D. Candidate, <a href="https://wireless.engineering.nyu.edu/" target="_blank">NYU WIRELESS</a>, New York University</div>
+        <p style="margin:0">I am a Ph.D. candidate in Electrical and Computer Engineering at NYU WIRELESS, advised by
+          <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">Prof. Theodore S. Rappaport</a>.
+          My research builds site-specific wireless digital twins: material-aware 3D reconstruction, calibrated ray tracing (NYURay),
+          and upper mid-band channel measurement and modeling for 6G.</p>
+        <div class="interests">
+          <span class="tag">Wireless ray tracing</span>
+          <span class="tag">3D reconstruction &amp; digital twins</span>
+          <span class="tag">Mid-band channel modeling</span>
+          <span class="tag">AI for wireless</span>
+          <span class="tag">RIS</span>
+          <span class="tag">Energy efficiency (Waste Factor)</span>
         </div>
-      </div> -->
-        <li>Integrated MASt3R-SLAM point cloud generation, PTv3 semantic segmentation, and Qwen3-VL vision-language model to automatically classify and label object materials.</li>
+        <div class="links">
+          <a class="btn primary" href="data/CV_Mingjun_YING.pdf" target="_blank">CV</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=aY6IANwAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          <a class="btn" href="https://github.com/Yingmingjun" target="_blank">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/mingjun-ying-8a590a24a/" target="_blank">LinkedIn</a>
+          <span class="btn" style="cursor:default">yingmingjun [AT] nyu [DOT] edu</span>
+        </div>
+        <div class="callout">I am seeking full-time industry, postdoctoral, and internship positions starting in 2027.</div>
+      </div>
+    </section>
 
-        <li>Validated framework via dual-band measurements (6.75 GHz, 16.95 GHz) across 12 TX-RX locations in a 700 m² factory using NYURay ray tracer, achieving comparable RMSE to manual baseline. <a href="https://arxiv.org/pdf/2602.12942" target="_blank">[Paper]</a> <a href="data/HoRAMA_poster.pdf" target="_blank">[Poster]</a></li>
-      </ul>
-
-                    <!-- System Overview -->
-      <div style="margin: 25px 0;">
-        <h4 style="text-align: center; color: #333; margin-bottom: 15px;"></h4>
-        <div style="text-align: center;">
-          <img src="fig/HoRAMA.png" border="0" style="width: 100%; max-width: 800px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-          <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>HoRAMA pipeline: MASt3R-SLAM point cloud from RGB video, PTv3 + Qwen3-VL material labeling, and NYURay ray tracing</em></p>
+    <!-- NEWS + EDUCATION -->
+    <section id="news">
+      <div class="grid2">
+        <div>
+          <h2>News</h2>
+          <ul class="news" id="newsList">
+            <li><span class="date">Oct. 2026</span><span>U.S. national-phase patent application filed on Waste Factor based power reduction.</span></li>
+            <li><span class="date">Aug. 2026</span><span>Two papers accepted at IEEE GLOBECOM 2026, Macau: SPARC ray-tracing calibration (first author) and uncertainty-aware indoor localization.</span></li>
+            <li><span class="date">Jul. 2026</span><span>RIS outdoor-to-indoor coverage paper accepted at Asilomar 2026 (first author).</span></li>
+            <li><span class="date">Jun. 2026</span><span>Liquid crystal antenna hybrid beamforming paper at IEEE VTC-Spring 2026, Nice.</span></li>
+            <li><span class="date">May 2026</span><span>Three papers at IEEE ICC 2026, Glasgow, including HoRAMA (first author).</span></li>
+            <li class="extra"><span class="date">May 2026</span><span>Two U.S. patent applications filed: 3D environment replicas for AI, and ISAC imaging by CSI.</span></li>
+            <li class="extra"><span class="date">Mar. 2026</span><span>NYURay calibration and validation paper published in <em>npj Wireless Technology</em>.</span></li>
+            <li class="extra"><span class="date">Dec. 2025</span><span>Two papers at IEEE GLOBECOM 2025, Taipei.</span></li>
+            <li class="extra"><span class="date">Dec. 2023</span><span>Best Paper Award at IEEE GLOBECOM 2023 for Waste Factor.</span></li>
+          </ul>
+          <button class="more" onclick="toggleNews(this)">Show all news ▾</button>
+        </div>
+        <div id="education">
+          <h2>Education</h2>
+          <ul class="timeline">
+            <li><strong>Ph.D., Electrical and Computer Engineering</strong><span class="when">Sept. 2023 – Present</span>
+              <span class="sub">New York University · Advisor: Prof. Theodore S. Rappaport</span></li>
+            <li><strong>M.S., Electrical Engineering</strong><span class="when">Sept. 2023 – May 2025</span>
+              <span class="sub">New York University · completed en route to Ph.D. · <a href="https://www.proquest.com/docview/3219265391?pq-origsite=gscholar&fromopenview=true&sourcetype=Dissertations%20&%20Theses" target="_blank">Thesis</a></span></li>
+            <li><strong>B.E. (Hons.), Communication Engineering</strong><span class="when">Sept. 2019 – Jun. 2023</span>
+              <span class="sub"><a href="http://english.cqupt.edu.cn/" target="_blank">Chongqing University of Posts and Telecommunications</a> · Advisor: <a href="https://www.scholat.com/xuyongjun.en" target="_blank">Prof. Yongjun Xu</a></span></li>
+          </ul>
         </div>
       </div>
-      <div style="text-align: center; margin: 20px 0;">
-        <video controls preload="metadata" playsinline poster="fig/HoRAMA_video_poster.jpg" style="width: 85%; max-width: 900px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-          <source src="video/HoRAMA_1080p.mp4" type="video/mp4">
-        </video>
-        <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>HoRAMA: 3D wireless digital twins from smartphone video</em></p>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2>Research</h2>
+      <div class="themes">
+        <a href="#theme-twin">Wireless Digital Twins &amp; Ray Tracing</a>
+        <a href="#theme-channel">Channel Measurement &amp; Modeling</a>
+        <a href="#theme-theory">Energy Efficiency &amp; Information Theory</a>
       </div>
 
+      <h3 class="theme" id="theme-twin">Wireless Digital Twins &amp; Ray Tracing</h3>
 
-      <h3>NYURay: Python-Based Ray Tracer for Wireless Channel Prediction (Sept. 2024 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-            Prof. Theodore S. Rappaport </a> (Member of US National Academy of Engineering, Founding Director of NYU WIRELESS, IEEE Life Fellow)
-        </li>
-        <li>Implemented reflection, diffraction, penetration, and scattering propagation mechanisms in a Python-based calibrated ray tracer for high-fidelity site-specific channel prediction across the upper mid-band spectrum.</li>
-        <li>Developed GPU-accelerated ray tracing algorithms achieving 100× speedup, enabling simulation of 10<sup>6</sup> rays in complex environments in under 3-5 seconds per TX-RX pair.</li>
-        <li>Created 3D visualization tools for spatial channel analysis, including transmitter-receiver placement, antenna radiation patterns, and antenna orientation.</li>
-        <li>Developed SPARC, a sparse path-aware residual calibrator that corrects per-path ray-tracing power errors using a small set of measurements (IEEE GLOBECOM 2026). <a href="https://arxiv.org/pdf/2609.06077" target="_blank">[Paper]</a></li>
-      </ul>
-      <div style="text-align: center; margin: 20px 0;">
-        <img src="fig/RT_example.png" border="0" style="width: 85%; max-width: 900px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-        <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>NYURay Ray Tracing Visualization: 3D environment reconstruction with propagation path analysis</em></p>
-      </div>
-
-      <h3>Waste Factor: A New Metric for Evaluating Power Efficiency in any Cascade (Jan. 2023 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-            Prof. Theodore S. Rappaport </a> (Member of US National Academy of Engineering, Founding Director of NYU WIRELESS, IEEE Life Fellow)
-        </li>
-        <li> Developed a novel metric, Waste Factor, to evaluate power efficiency in ANY cascaded systems.</li>
-        <div class="centered-equation">
-          $$W = W_N + \frac{(W_{N-1} - 1)}{G_N} + \frac{(W_{N-2} - 1)}{G_N G_{N-1}} + \cdots + \frac{(W_1 - 1)}{\prod_{i=2}^N G_i}$$
+      <article class="proj">
+        <div class="proj-head">
+          <h4>HoRAMA: Material-Aware 3D Reconstruction for Wireless Ray Tracing</h4>
+          <span class="meta">Sept. 2024 – Present · with Prof. Rappaport and <a href="https://cs.nyu.edu/~fouhey/" target="_blank">Prof. David Fouhey</a></span>
         </div>
-        <li>Enhanced Waste Factor for data center analysis using power usage effectiveness (PUE).</li>
-        <table style="width: 95%; table-layout: fixed;">
-          <tr>
-            <td style="width: 30%; text-align: center;">
-              <img src="fig/GC23_TXRX.jpg" border="0" style="width: 100%; display: block; margin: 0 auto;">
-            </td>
-            <td style="width: 50%; text-align: center;">
-              <img src="fig/MIMO_W.png" border="0" style="width: 100%; display: block; margin: 0 auto;">
-            </td>
-          </tr>
-        </table>
-        
-        <li>Simulated component efficiency impacts on Waste Factor at different frequencies in a 1 km² cellular cell.</li>
-        <li>Extended the metric to analyze parallel/MIMO systems and radio access networks (RAN), and help drive decision making for wireless networks.</li>
-        <table>
-          <tr>
-            <td style="text-align: center;">
-              <img src="fig/WF_tradeoff.jpg" border="0" style="width: 90%; display: block; margin: 0 auto;">
-            </td>
-          </tr>
-        </table>
+        <ul>
+          <li>Automated framework that turns RGB video into ray-tracing-ready 3D models with electromagnetic material labels, cutting reconstruction time from months to hours.</li>
+          <li>MASt3R-SLAM point clouds, PTv3 semantic segmentation, and Qwen3-VL material labeling.</li>
+          <li>Validated at 6.75 and 16.95 GHz over 12 TX-RX links in a 700 m² factory with NYURay; RMSE comparable to a hand-built model.</li>
+        </ul>
+        <div class="gallery g5">
+          <figure class="wide"><img loading="lazy" src="fig/web/horama_pipeline.jpg" alt=""><figcaption>HoRAMA pipeline</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/horama_a_raw.jpg" alt=""><figcaption>(a) Raw point cloud</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/horama_b_clean.jpg" alt=""><figcaption>(b) Cleaned point cloud</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/horama_c_seg.jpg" alt=""><figcaption>(c) PTv3 segmentation</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/horama_d_model.jpg" alt=""><figcaption>(d) RT-ready 3D model</figcaption></figure>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://arxiv.org/pdf/2602.12942" target="_blank">Paper (ICC 2026)</a>
+          <a class="chip" href="data/HoRAMA_poster.pdf" target="_blank">Poster</a>
+          <button class="chip" onclick="openVideo('video/HoRAMA_1080p.mp4','fig/HoRAMA_video_poster.jpg')">▶ Video</button>
+        </div>
+      </article>
 
-      </ul>
-      
+      <article class="proj">
+        <div class="proj-head">
+          <h4>NYURay: Calibrated Ray Tracer for Site-Specific Channel Prediction</h4>
+          <span class="meta">Sept. 2024 – Present · with Prof. Rappaport</span>
+        </div>
+        <ul>
+          <li>Python ray tracer with reflection, diffraction, penetration, and scattering for upper mid-band channel prediction.</li>
+          <li>GPU acceleration (100× speedup): 10<sup>6</sup> rays in 3–5 s per TX-RX pair; 3D tools for TX-RX placement and antenna patterns.</li>
+          <li>Site-specific location calibration by power-delay-profile alignment, and SPARC, a sparse path-aware residual calibrator that corrects per-path power errors from a small set of measurements.</li>
+        </ul>
+        <div class="gallery g3">
+          <figure><img loading="lazy" src="fig/web/nyuray_rt.jpg" alt=""><figcaption>NYURay propagation paths</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/sparc_pdp.jpg" alt=""><figcaption>SPARC: calibrated PDP vs. measurement</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/sparc_rmse.jpg" alt=""><figcaption>SPARC: RMSE vs. baselines</figcaption></figure>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://arxiv.org/pdf/2507.22027" target="_blank">npj Wireless Technology 2026</a>
+          <a class="chip" href="https://arxiv.org/pdf/2609.06077" target="_blank">SPARC (GLOBECOM 2026)</a>
+          <a class="chip" href="https://arxiv.org/pdf/2509.11923" target="_blank">Location optimization (GLOBECOM 2025)</a>
+        </div>
+      </article>
 
+      <article class="proj">
+        <div class="proj-head">
+          <h4>RIS-Assisted Outdoor-to-Indoor Coverage at Upper Mid-Band</h4>
+          <span class="meta">Apr. 2026 – Present · with Prof. Rappaport</span>
+        </div>
+        <ul>
+          <li>Joint optimization of BS precoding, RIS phase shifts, and RIS deployment position to maximize the worst-user rate in a multi-user MISO outdoor-to-indoor downlink.</li>
+          <li>GPU-parallel solver (PRIMO) evaluated with dual-band ray tracing of the NYU MetroTech campus at FR1(C) and FR3.</li>
+        </ul>
+        <div class="gallery g3">
+          <figure><img loading="lazy" src="fig/web/ris_system.jpg" alt=""><figcaption>System model</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/ris_scene.jpg" alt=""><figcaption>Ray-traced MetroTech scenario</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/ris_coverage.jpg" alt=""><figcaption>Indoor rate map without / with RIS</figcaption></figure>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://arxiv.org/pdf/2610.03887" target="_blank">Paper (Asilomar 2026)</a>
+          <a class="chip" href="data/PRIMO_RIS_poster.pdf" target="_blank">Poster</a>
+        </div>
+      </article>
 
+      <h3 class="theme" id="theme-channel">Channel Measurement &amp; Modeling</h3>
 
-      
-      
-      <h3>FR1(C) and FR3 Mid-Band Radio Propagation Measurement and Modeling at 3.7, 6.75, and 16.95 GHz (Nov. 2023 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-            Prof. Theodore S. Rappaport </a> (Member of US National Academy of Engineering, Founding Director of NYU WIRELESS, IEEE Life Fellow)
-        </li>
-        
-        <li>Conducted comprehensive FR3 measurement campaigns at NYU for 6.75 GHz and 16.95 GHz frequencies.</li>
-        <li>Conducted 3.7 GHz FR1(C) measurement campaigns in urban microcell (UMi), indoor hotspot (InH), and indoor factory (InF) environments using a sliding-correlator channel sounder with 1 GHz null-to-null bandwidth (papers in submission to IEEE ICC 2027).</li>
-<li>Creating a detailed statistical spatial channel model based on radio propagation data from outdoor, indoor, and factory environments together with penetration loss and cross-polarization discrimination (XPD) measurement at 6.75 GHz and 16.95 GHz. </li>
+      <article class="proj">
+        <div class="proj-head">
+          <h4>FR1(C) and FR3 Mid-Band Propagation Measurements at 3.7, 6.75, and 16.95 GHz</h4>
+          <span class="meta">Nov. 2023 – Present · with Prof. Rappaport</span>
+        </div>
+        <ul>
+          <li>Measurement campaigns at 6.75 and 16.95 GHz in urban microcell (UMi), indoor hotspot (InH), and indoor factory (InF) environments, including penetration loss and XPD.</li>
+          <li>3.7 GHz FR1(C) campaigns in UMi, InH, and InF with a 1 GHz sliding-correlator channel sounder (ICC 2027, in submission).</li>
+          <li>Statistical channel models and a machine-readable point-data format for sharing measurements across institutions.</li>
+        </ul>
+        <div class="gallery g4">
+          <figure><img class="photo" loading="lazy" src="fig/web/fr1_f12.jpg" alt=""><figcaption>3.7 GHz sliding-correlator sounder</figcaption></figure>
+          <figure><img class="photo" loading="lazy" src="fig/web/fr1_f17.jpg" alt=""><figcaption>UMi LOS/NLOS measurements</figcaption></figure>
+          <figure><img class="photo" loading="lazy" src="fig/web/fr1_f32.jpg" alt=""><figcaption>Indoor factory (InF) campaign</figcaption></figure>
+          <figure><img class="photo" loading="lazy" src="fig/web/fr1_f37.jpg" alt=""><figcaption>Long-range UMi routes up to 1 km</figcaption></figure>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://arxiv.org/pdf/2410.17539" target="_blank">UMi</a>
+          <a class="chip" href="https://arxiv.org/pdf/2405.01358" target="_blank">InH</a>
+          <a class="chip" href="https://arxiv.org/pdf/2411.03565" target="_blank">InF</a>
+          <a class="chip" href="https://arxiv.org/pdf/2409.19873" target="_blank">Point-Data</a>
+          <a class="chip" href="https://arxiv.org/pdf/2405.01362" target="_blank">Penetration</a>
+          <button class="chip" onclick="openVideo('video/FR1_3p7GHz_measurement_1080p.mp4','fig/FR1_video_poster.jpg')">▶ 3.7 GHz video</button>
+          <button class="chip" onclick="openYouTube('HRhdrwL9KvU')">▶ FR3 video</button>
+        </div>
+      </article>
 
-<li>Publications: 
-  <a href="https://arxiv.org/pdf/2410.17539" target="_blank">[UMi]</a> 
-  <a href="https://arxiv.org/pdf/2405.01358" target="_blank">[InH]</a>
-  <a href="https://arxiv.org/pdf/2411.03565" target="_blank">[InF]</a> 
-<a href="https://arxiv.org/pdf/2409.19873" target="_blank">[Point-Data]</a>
-<a href="https://arxiv.org/pdf/2405.01362" target="_blank">[Penetration]</a>
-</li>
-        
+      <h3 class="theme" id="theme-theory">Energy Efficiency &amp; Information Theory</h3>
 
+      <article class="proj">
+        <div class="proj-head">
+          <h4>Waste Factor: A New Metric for Power Efficiency in Any Cascade</h4>
+          <span class="meta">Jan. 2023 – Present · with Prof. Rappaport · <span class="award">GLOBECOM 2023 Best Paper Award</span></span>
+        </div>
+        <ul>
+          <li>Waste Factor quantifies wasted power in any cascaded system:
+            \(W = W_N + \frac{W_{N-1} - 1}{G_N} + \cdots + \frac{W_1 - 1}{\prod_{i=2}^N G_i}\).</li>
+          <li>Extended to MIMO, radio access networks, and data centers (PUE) to guide energy-efficient network design.</li>
+        </ul>
+        <div class="gallery g4">
+          <figure><img loading="lazy" src="fig/web/wf_cascade.jpg" alt=""><figcaption>Cascaded system model</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/wf_txrx.jpg" alt=""><figcaption>TX/RX power-consuming components</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/wf_mimo.jpg" alt=""><figcaption>Waste Factor for MIMO</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/wf_tradeoff.jpg" alt=""><figcaption>Data rate vs. Waste Factor trade-off</figcaption></figure>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://ieeexplore.ieee.org/document/10436843" target="_blank">GLOBECOM 2023</a>
+          <a class="chip" href="https://ieeexplore.ieee.org/document/10604822" target="_blank">OJ-COMS 2024</a>
+          <a class="chip" href="https://arxiv.org/pdf/2405.01352" target="_blank">MISO/MIMO (GLOBECOM 2024)</a>
+        </div>
+      </article>
 
-      </ul>
+      <article class="proj">
+        <div class="proj-head">
+          <h4>Capacity of a Binary Channel with a Time-Bounded Adversary</h4>
+          <span class="meta">Feb. 2024 – Present · with <a href="https://wireless.engineering.nyu.edu/sundeep-rangan/" target="_blank">Prof. Sundeep Rangan</a> and <a href="https://wireless.engineering.nyu.edu/elza-erkip/" target="_blank">Prof. Elza Erkip</a></span>
+        </div>
+        <ul>
+          <li>Derived worst-case adversarial capacity for binary channels with a time-bounded adversary.</li>
+          <li>Achieved it with a random interleaver and thresholded LLR decoder, compatible with 5G NR LDPC decoders.</li>
+        </ul>
+        <div class="gallery g3">
+          <figure class="wide"><img loading="lazy" src="fig/web/adv_structure.jpg" alt=""><figcaption>Interleaved coding with LLR clipping</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/adv_capacity.jpg" alt=""><figcaption>Capacity vs. flip probability</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/adv_ber.jpg" alt=""><figcaption>BER with LDPC codes</figcaption></figure>
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">Paper (Asilomar 2024)</a>
+          <a class="chip" href="https://github.com/Yingmingjun/AdversarialCapacity" target="_blank">Code</a>
+        </div>
+      </article>
 
-      <div style="text-align: center; margin: 20px 0;">
-        <iframe src="https://www.youtube.com/embed/HRhdrwL9KvU?si=Drtf-Xt5LMzWCDXW" 
-                width="80%" 
-                height="200" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-        </iframe> 
+      <details class="earlier">
+        <summary>Earlier research at CQUPT (2021 – 2023)</summary>
+        <h4>Resource Allocation for Wireless-Powered Backscatter Networks (Undergraduate Thesis, Sept. 2022 – Jun. 2023)</h4>
+        <div class="meta">Advisor: Prof. Yongjun Xu</div>
+        <ul>
+          <li>Energy-efficient wireless-powered backscatter network with OFDMA and robust optimization under imperfect CSI.</li>
+          <li>Dinkelbach method and variable substitution to obtain a convex problem, solved by the Lagrange dual method.</li>
+        </ul>
+        <h4>RIS-Assisted Wireless Powered Communication Networks (Apr. 2021 – Apr. 2022)</h4>
+        <div class="meta">Advisor: Prof. Yongjun Xu</div>
+        <ul>
+          <li>Joint radio resource and passive beamforming optimization for a downlink RIS-assisted WPCN with harvest-then-transmit to improve energy efficiency.</li>
+        </ul>
+        <div class="gallery g2">
+          <figure><img loading="lazy" src="fig/web/wpcn_nlos.jpg" alt=""><figcaption>RIS-assisted WPCN (NLoS)</figcaption></figure>
+          <figure><img loading="lazy" src="fig/web/wpcn_los.jpg" alt=""><figcaption>RIS-assisted WPCN (LoS)</figcaption></figure>
+        </div>
+      </details>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications &amp; Patents</h2>
+      <div class="filters" id="pubFilters">
+        <button class="on" data-f="all">All</button>
+        <button data-f="first">First-author</button>
+        <button data-f="journal">Journals (6)</button>
+        <button data-f="conf">Conferences (24)</button>
+        <button data-f="patent">Patents (5)</button>
       </div>
-      <div style="text-align: center; margin: 20px 0;">
-        <video controls preload="metadata" playsinline poster="fig/FR1_video_poster.jpg" style="width: 85%; max-width: 900px; display: block; margin: 0 auto; border: 1px solid #ddd; border-radius: 5px;">
-          <source src="video/FR1_3p7GHz_measurement_1080p.mp4" type="video/mp4">
-        </video>
-        <p style="margin-top: 10px; font-size: 14px; color: #666;"><em>3.7 GHz FR1(C) measurement campaign at NYU WIRELESS</em></p>
-      </div>
-      
-
-
-      <h3>RIS-Assisted Outdoor-to-Indoor Coverage at Upper Mid-Band (Apr. 2026 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">
-            Prof. Theodore S. Rappaport </a> (Member of US National Academy of Engineering, Founding Director of NYU WIRELESS, IEEE Life Fellow)
-        </li>
-        <li>Jointly optimized base station precoding, RIS phase shifts, and RIS deployment position to maximize the worst-user rate in a multi-user MISO outdoor-to-indoor downlink.</li>
-        <li>Evaluated the design with dual-band ray tracing at upper mid-band frequencies (Asilomar 2026). <a href="https://arxiv.org/pdf/2610.03887" target="_blank">[Paper]</a> <a href="data/PRIMO_RIS_poster.pdf" target="_blank">[Poster]</a></li>
-      </ul>
-
-      <h3>Capacity of a Binary Channel with a Time-Bounded Adversary (Feb. 2024 - Now)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://wireless.engineering.nyu.edu/sundeep-rangan/" target="_blank">
-            Prof. Sundeep Rangan </a> (Director of NYU WIRELESS, IEEE Fellow) and
-          <a href="https://wireless.engineering.nyu.edu/elza-erkip/" target="_blank">Prof. Elza Erkip</a> (IEEE Fellow)
-        </li> 
-        
-        <li>Derived the worst-case adversarial capacity for binary channels with a time-bounded adversary.</li>
-        <li>Developed a method using random interleaver and thresholded LLR decoder to achieve optimal capacity.</li>
-        <table>
-          <tr>
-            <td style="text-align: center;">
-              <img src="fig/Structure_Adv.png" border="0" style="width: 95%; display: block; margin: 0 auto;">
-            </td>
-          </tr>
-        </table>
-        <li>Demonstrated successful integration of the proposed method into 5GNR LDPC decoder architectures.</li> 
-        <li>Proved the effectiveness of the proposed method under various adversarial scenarios. <a href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">[Paper]</a> <a href="https://github.com/Yingmingjun/AdversarialCapacity" target="_blank">[Code]</a></li> 
-        <table>
-          <tr>
-            <td style="text-align: center;">
-              <img src="fig/CapvsFP_SNR.jpg" border="0" style="width: 90%; display: block; margin: 0 auto;">
-            </td>
-            <td style="text-align: center;">
-              <img src="fig/BER_plot.png" border="0" style="width: 85%; display: block; margin: 0 auto;">
-            </td>
-          </tr>
-        </table>
-      </ul>
-
-
-
-
-
-
-
-
-      <!-- Processing Results -->
-
-        <!-- <table style="width: 95%; table-layout: fixed; margin: 0 auto; border-collapse: collapse;">
-          <tr>
-            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
-              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
-                <img src="fig/noisy_pointcloud_1.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
-              </div>
-              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(a)</strong> Raw point cloud with noise</p>
-            </td>
-            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
-              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
-                <img src="fig/clean_pointcloud_2.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
-              </div>
-              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(b)</strong> Cleaned point cloud</p>
-            </td>
-            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
-              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
-                <img src="fig/3d_segment_1.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
-              </div>
-              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(c)</strong> PTv3 segmented environment</p>
-            </td>
-            <td style="width: 25%; text-align: center; padding: 5px; vertical-align: top;">
-              <div style="height: 180px; display: flex; align-items: center; justify-content: center;">
-                <img src="fig/vismart_3d4.png" border="0" style="max-width: 100%; max-height: 180px; object-fit: contain; border: 1px solid #ddd; border-radius: 5px;">
-              </div>
-              <p style="margin-top: 5px; margin-bottom: 0; font-size: 12px; color: #666;"><strong>(d)</strong> Final RT-ready 3D model</p>
-            </td>
-          </tr>
-        </table> -->
-        <!-- <p style="text-align: center; margin-top: 5px; margin-bottom: 0; font-size: 13px; color: #666;"><em><strong>Figure:</strong> HoRAMA automated 3D reconstruction pipeline from raw point cloud to RT-ready model</em></p> -->
-
-
-
-
-      <h3>Resource Allocation for Wireless-Powered Backscatter Networks (Undergraduate Thesis) (Sept. 2022 -Jun. 2023)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://www.scholat.com/xuyongjun.en" target="_blank">Prof.
-            Yongjun Xu</a> (IEEE Senior Member), CQUPT</li>
-        <li>Developed and optimized an energy-efficient, wireless-powered backscatter communication network using OFDMA and robust optimization techniques, significantly improving network throughput and reducing outage probability under imperfect CSI.</li>
-<li>Utilized the Dinkelbach method and variable substitution to transform the resource allocation problem into a convex optimization problem, solved using the Lagrange dual method.</li>
-<li>Demonstrated superior performance and robustness through MATLAB simulations, outperforming traditional backscatter and harvest-then-transmit algorithms.</li>
-        
-      </ul>
-
-      
-      <h3>Research Training Program of CQUPT (Apr. 2021 - Apr. 2022)
-      </h3>
-      <ul>
-        <li>Supervisor: <a href="https://www.scholat.com/xuyongjun.en" target="_blank">Prof.
-            Yongjun Xu</a> (IEEE Senior Member), CQUPT</li>
-        <li>Proposed a joint radio resource and passive beamforming optimization scheme for a downlink RIS-assisted wireless powered communication network with a harvest-then-transmit protocol to improve the system energy efficiency (EE).</li>
-<li>Jointly optimized the active beamforming of the PS and the passive beamforming of the RIS.</li>
-      </ul>
-      <table>
-        <tr>
-          <td><img src=fig/WPCN_NLoS.png border=0></td>
-          <td><img src=fig/WPCN_LoS.png border=0></td>
-        </tr>
-      </table>
-
-
-      <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
-      <h2>Industry Experience</h2>
-
-      <h3>6G Wireless and Machine Learning Engineer (May 2025 - Aug. 2025)</h3>
-      <h4><a href="https://www.mediatek.com/" target="_blank">MediaTek USA Inc.</a>, Warren, NJ</h4>
-      <ul>
-        <li>Supervisor: Doru Calin, AVP, Head of U.S. 6G Wireless Research Center</li>
-        <li>Contributed to the development of MediaTek's internal ray-tracing tool and validated simulation results against real-world measurements.</li>
-        <li>Built automated indoor reconstruction pipelines and performed ray-tracing simulations for outdoor-to-indoor coverage prediction across entire buildings.</li>
-      </ul>
-
-      <h3>6G Wireless and Machine Learning Engineer (May 2024 - Aug. 2024)</h3>
-      <h4><a href="https://www.mediatek.com/" target="_blank">MediaTek USA Inc.</a>, Warren, NJ</h4>
-      <ul>
-        <li>Supervisor: Doru Calin, AVP, Head of U.S. 6G Wireless Research Center</li>
-        <li>Collaborated with the research team on TN-NTN (Terrestrial-Non-Terrestrial Network) coexistence solutions.</li>
-        <li>Developed joint beamforming algorithms for TN-NTN coexistence and interference management.</li>
-      </ul>
-
-      <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
-      <h2>Publications</h2>
-
-      <h3>Journal Articles</h3>
-      <ul class="publication-list">
-        <li><span class="pub-label">[J1]</span><strong>M. Ying</strong>, D. Shakya, P. Ma, G. Qian, and T. S. Rappaport, "Site-Specific Location Calibration and Validation of Ray-Tracing Simulator NYURay at Upper Mid-Band Frequencies," <em>npj Wireless Technology</em>, vol. 2, no. 1, art. no. 8, Mar. 2026. <a href="https://arxiv.org/pdf/2507.22027" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026npj')" class="bib-link">[BibTeX]</a></li>
+      <div class="pub-group" data-g="journal">
+        <h3>Journal Articles</h3>
+        <ul class="publication-list">
+        <li class="first"><span class="pub-label">[J1]</span><strong>M. Ying</strong>, D. Shakya, P. Ma, G. Qian, and T. S. Rappaport, "Site-Specific Location Calibration and Validation of Ray-Tracing Simulator NYURay at Upper Mid-Band Frequencies," <em>npj Wireless Technology</em>, vol. 2, no. 1, art. no. 8, Mar. 2026. <a href="https://arxiv.org/pdf/2507.22027" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026npj')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[J2]</span>A. Bazzi, <strong>M. Ying</strong>, O. Kanhere, T. S. Rappaport, and M. Chafii, "ISAC Imaging by Channel State Information Using Ray Tracing for Next Generation 6G," <em>IEEE Journal of Selected Topics in Electromagnetics, Antennas and Propagation</em>, vol. 1, pp. 135–149, Sep. 2025. <a href="https://doi.org/10.1109/JSTEAP.2025.3605877" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('bazzi2025isac')" class="bib-link">[BibTeX]</a></li>
 
@@ -369,20 +426,18 @@
         <li><span class="pub-label">[J5]</span>T. S. Rappaport, <strong>M. Ying</strong>, and D. Shakya, "Waste Figure and Waste Factor: New Metrics for Evaluating Power Efficiency in Any Circuit or Cascade," <em>Microwave Journal</em>, vol. 67, no. 5, pp. 54–56, May 2024. <a href="https://wireless.engineering.nyu.edu/wp-content/uploads/2024/05/5M31-FINALsm2.pdf" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('rappaport2024microwave')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[J6]</span>Y. Wang, Y. Lian, <strong>M. Ying</strong>, and S. Wang, "Attention Multilayer Perceptron Fusion Network," <em>IEEE Access</em>, vol. 11, pp. 83580–83588, Aug. 2023. <a href="https://doi.org/10.1109/ACCESS.2023.3302324" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('wang2023access')" class="bib-link">[BibTeX]</a></li>
-      </ul>
-
-
-      
-
-      <h3>Conference Papers</h3>
-      <ul class="publication-list">
-        <li><span class="pub-label">[C1]</span><strong>M. Ying</strong>, G. Qian, X. Wang, X. Liu, I. S. Gupte, P. Ma, D. Shakya, and T. S. Rappaport, "SPARC: Sparse Path-Aware Residual Calibrator for Wireless Ray Tracing at Upper Mid-Band," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Macau, China, Dec. 2026 (to appear). <a href="https://arxiv.org/pdf/2609.06077" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026globecom')" class="bib-link">[BibTeX]</a></li>
+        </ul>
+      </div>
+      <div class="pub-group" data-g="conf">
+        <h3>Conference Papers</h3>
+        <ul class="publication-list">
+        <li class="first"><span class="pub-label">[C1]</span><strong>M. Ying</strong>, G. Qian, X. Wang, X. Liu, I. S. Gupte, P. Ma, D. Shakya, and T. S. Rappaport, "SPARC: Sparse Path-Aware Residual Calibrator for Wireless Ray Tracing at Upper Mid-Band," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Macau, China, Dec. 2026 (to appear). <a href="https://arxiv.org/pdf/2609.06077" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026globecom')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C2]</span>X. Liu, <strong>M. Ying</strong>, X. Wang, D. Shakya, and T. S. Rappaport, "Uncertainty-Aware Localization Using Directional Multipath Components in Indoor Channels," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Macau, China, Dec. 2026 (to appear). <a href="javascript:void(0)" onclick="showBibTeX('liu2026globecom')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C3]</span><strong>M. Ying</strong>, G. Qian, X. Wang, X. Liu, I. S. Gupte, D. Shakya, and T. S. Rappaport, "Joint Beamforming and RIS Deployment Optimization for Outdoor-to-Indoor Coverage at Upper Mid-Band: A Dual-Band Ray-Tracing Study," <em>60th Asilomar Conference on Signals, Systems, and Computers</em>, Pacific Grove, CA, USA, Oct. 2026 (to appear). <a href="https://arxiv.org/pdf/2610.03887" target="_blank">[PDF]</a> <a href="data/PRIMO_RIS_poster.pdf" target="_blank">[Poster]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026asilomar')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C3]</span><strong>M. Ying</strong>, G. Qian, X. Wang, X. Liu, I. S. Gupte, D. Shakya, and T. S. Rappaport, "Joint Beamforming and RIS Deployment Optimization for Outdoor-to-Indoor Coverage at Upper Mid-Band: A Dual-Band Ray-Tracing Study," <em>60th Asilomar Conference on Signals, Systems, and Computers</em>, Pacific Grove, CA, USA, Oct. 2026 (to appear). <a href="https://arxiv.org/pdf/2610.03887" target="_blank">[PDF]</a> <a href="data/PRIMO_RIS_poster.pdf" target="_blank">[Poster]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026asilomar')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C4]</span><strong>M. Ying</strong>, G. Qian, X. Wang, P. Ma, D. Shakya, and T. S. Rappaport, "HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay," <em>IEEE International Conference on Communications (ICC)</em>, Glasgow, UK, May 2026, pp. 1–7. <a href="https://arxiv.org/pdf/2602.12942" target="_blank">[PDF]</a> <a href="data/HoRAMA_poster.pdf" target="_blank">[Poster]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026icc')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C4]</span><strong>M. Ying</strong>, G. Qian, X. Wang, P. Ma, D. Shakya, and T. S. Rappaport, "HoRAMA: Holistic Reconstruction with Automated Material Assignment for Ray Tracing using NYURay," <em>IEEE International Conference on Communications (ICC)</em>, Glasgow, UK, May 2026, pp. 1–7. <a href="https://arxiv.org/pdf/2602.12942" target="_blank">[PDF]</a> <a href="data/HoRAMA_poster.pdf" target="_blank">[Poster]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2026icc')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C5]</span>S. Jia, <strong>M. Ying</strong>, M. Mezzavilla, T. S. Rappaport, and S. Rangan, "Distributed Uplink Anti-Jamming in LEO Mega-Constellations via Game-Theoretic Beamforming," <em>IEEE International Conference on Communications (ICC)</em>, Glasgow, UK, May 2026, pp. 1–6. <a href="https://arxiv.org/pdf/2601.15557" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('jia2026icc')" class="bib-link">[BibTeX]</a></li>
 
@@ -390,11 +445,11 @@
 
         <li><span class="pub-label">[C7]</span>X. Wang, <strong>M. Ying</strong>, H. Chen, G. Qian, X. Liu, P. Ma, D. Shakya, C. Argyropoulos, and T. S. Rappaport, "Robust Hybrid Beamforming with Liquid Crystal Antennas and Liquid Neural Networks," <em>IEEE Vehicular Technology Conference (VTC-Spring)</em>, Nice, France, Jun. 2026, pp. 1–6. <a href="https://arxiv.org/pdf/2604.07219" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('wang2026vtc')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C8]</span><strong>M. Ying</strong>, P. Ma, D. Shakya, and T. S. Rappaport, "Multi-Stage Location Optimization Through Power Delay Profile Alignment Using Site-Specific Wireless Ray Tracing," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025, pp. 5169–5174. <a href="https://arxiv.org/pdf/2509.11923" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025globecom')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C8]</span><strong>M. Ying</strong>, P. Ma, D. Shakya, and T. S. Rappaport, "Multi-Stage Location Optimization Through Power Delay Profile Alignment Using Site-Specific Wireless Ray Tracing," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025, pp. 5169–5174. <a href="https://arxiv.org/pdf/2509.11923" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025globecom')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C9]</span>S. Jia, <strong>M. Ying</strong>, M. Mezzavilla, D. Calin, T. S. Rappaport, and S. Rangan, "Joint Detection, Channel Estimation and Interference Nulling for Terrestrial-Satellite Downlink Co-Existence in the Upper Mid-Band," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Taipei, Taiwan, Dec. 2025, pp. 2771–2776. <a href="https://arxiv.org/pdf/2510.08824" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('jia2025globecom')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C10]</span><strong>M. Ying</strong>, D. Shakya, T. S. Rappaport, P. Ma, Y. Wang, I. Al-Wazani, Y. Wu, and H. Poddar, "Upper Mid-Band Channel Measurements and Characterization at 6.75 GHz FR1(C) and 16.95 GHz FR3 in an Indoor Factory Scenario," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3303-3308. <a href="https://ieeexplore.ieee.org/document/11160744" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025icc')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C10]</span><strong>M. Ying</strong>, D. Shakya, T. S. Rappaport, P. Ma, Y. Wang, I. Al-Wazani, Y. Wu, and H. Poddar, "Upper Mid-Band Channel Measurements and Characterization at 6.75 GHz FR1(C) and 16.95 GHz FR3 in an Indoor Factory Scenario," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3303-3308. <a href="https://ieeexplore.ieee.org/document/11160744" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2025icc')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C11]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, P. Ma, I. Al-Wazani, Y. Wu, Y. Wang, D. Calin, H. Poddar, A. Bazzi, M. Chafii, Y. Xing, and A. Ghosh, "Urban Outdoor Propagation Measurements and Channel Models at 6.75 GHz FR1(C) and 16.95 GHz FR3 Upper Mid-band Spectrum for 5G and 6G," <em>IEEE International Conference on Communications (ICC)</em>, Montreal, Canada, Jun. 2025, pp. 3291-3296. <a href="https://ieeexplore.ieee.org/document/11161884" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025icc')" class="bib-link">[BibTeX]</a></li>
 
@@ -404,9 +459,9 @@
 
         <li><span class="pub-label">[C14]</span>D. Shakya, N. A. Abbasi, <strong>M. Ying</strong>, I. Jariwala, J. J. Qin, I. S. Gupte, B. Meier, G. Qian, D. Abraham, T. S. Rappaport, and A. F. Molisch, "Standardized Machine-Readable Point-Data Format for Consolidating Wireless Propagation Across Environments, Frequencies, and Institutions," <em>IEEE Military Communications Conference (MILCOM)</em>, Los Angeles, CA, USA, Oct. 2025, pp. 232–237. <a href="https://arxiv.org/pdf/2510.00141" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2025pointdata')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C15]</span><strong>M. Ying</strong>, F. B. Sarpkaya, S. Bakirtas, E. Erkip, T. S. Rappaport, and S. Rangan, "Capacity of a Binary Channel with a Time-Bounded Adversary," <em>58th Asilomar Conference on Signals, Systems, and Computers</em>, Pacific Grove, CA, USA, Oct. 2024, pp. 801–805. <a href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024asilomar')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C15]</span><strong>M. Ying</strong>, F. B. Sarpkaya, S. Bakirtas, E. Erkip, T. S. Rappaport, and S. Rangan, "Capacity of a Binary Channel with a Time-Bounded Adversary," <em>58th Asilomar Conference on Signals, Systems, and Computers</em>, Pacific Grove, CA, USA, Oct. 2024, pp. 801–805. <a href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024asilomar')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C16]</span><strong>M. Ying</strong>, D. Shakya, and T. S. Rappaport, "Using Waste Factor to Optimize Energy Efficiency in Multiple-Input Single-Output (MISO) and Multiple-Input Multiple-Output (MIMO) Systems," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 3170–3175. <a href="https://arxiv.org/pdf/2405.01352" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024globecom')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C16]</span><strong>M. Ying</strong>, D. Shakya, and T. S. Rappaport, "Using Waste Factor to Optimize Energy Efficiency in Multiple-Input Single-Output (MISO) and Multiple-Input Multiple-Output (MIMO) Systems," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 3170–3175. <a href="https://arxiv.org/pdf/2405.01352" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2024globecom')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C17]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, H. Poddar, P. Ma, Y. Wang, and I. Al-Wazani, "Propagation Measurements and Channel Models in Indoor Environment at 6.75 GHz FR1(C) and 16.95 GHz FR3 Upper-Mid Band Spectrum for 5G and 6G," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 998–1003. <a href="https://arxiv.org/pdf/2405.01358" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2024globecom1')" class="bib-link">[BibTeX]</a></li>
 
@@ -414,19 +469,20 @@
 
         <li><span class="pub-label">[C19]</span>D. Shakya, <strong>M. Ying</strong>, T. S. Rappaport, H. Poddar, P. Ma, Y. Wang, and I. Al-Wazani, "Wideband Penetration Loss through Building Materials and Partitions at 6.75 GHz in FR1(C) and 16.95 GHz in the FR3 Upper Mid-band Spectrum," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Cape Town, South Africa, Dec. 2024, pp. 1665–1670. <a href="https://arxiv.org/pdf/2405.01362" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('shakya2024globecom2')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C20]</span><strong>M. Ying</strong>, D. Shakya, H. Poddar, and T. S. Rappaport, "Waste Factor: A New Metric for Evaluating Power Efficiency in Any Cascade," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Kuala Lumpur, Malaysia, Dec. 2023, pp. 6735–6740. <a href="https://ieeexplore.ieee.org/document/10436843" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2023globecom')" class="bib-link">[BibTeX]</a> <strong>(Best Paper Award)</strong></li>
+        <li class="first"><span class="pub-label">[C20]</span><strong>M. Ying</strong>, D. Shakya, H. Poddar, and T. S. Rappaport, "Waste Factor: A New Metric for Evaluating Power Efficiency in Any Cascade," <em>IEEE Global Communications Conference (GLOBECOM)</em>, Kuala Lumpur, Malaysia, Dec. 2023, pp. 6735–6740. <a href="https://ieeexplore.ieee.org/document/10436843" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2023globecom')" class="bib-link">[BibTeX]</a> <span class="award">(Best Paper Award)</span></li>
 
-        <li><span class="pub-label">[C21]</span><strong>M. Ying</strong> and S. Wang, "Self-Optimizing Water-Filling Power Allocation: A Hybrid Fractional Frequency Reuse Way," <em>2022 13th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP)</em>, Porto, Portugal, Jul. 2022, pp. 208–213. <a href="https://ieeexplore.ieee.org/document/9908038" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022csndsp')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C21]</span><strong>M. Ying</strong> and S. Wang, "Self-Optimizing Water-Filling Power Allocation: A Hybrid Fractional Frequency Reuse Way," <em>2022 13th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP)</em>, Porto, Portugal, Jul. 2022, pp. 208–213. <a href="https://ieeexplore.ieee.org/document/9908038" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022csndsp')" class="bib-link">[BibTeX]</a></li>
 
-        <li><span class="pub-label">[C22]</span><strong>M. Ying</strong> and S. Wang, "Capacity Analysis and Hybrid Power Allocation for Multi-cell 5G Networks," <em>2022 11th International Conference on Communications, Circuits and Systems (ICCCAS)</em>, Singapore, Dec. 2022, pp. 192–197. <a href="https://ieeexplore.ieee.org/document/9824531" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022icccas')" class="bib-link">[BibTeX]</a></li>
+        <li class="first"><span class="pub-label">[C22]</span><strong>M. Ying</strong> and S. Wang, "Capacity Analysis and Hybrid Power Allocation for Multi-cell 5G Networks," <em>2022 11th International Conference on Communications, Circuits and Systems (ICCCAS)</em>, Singapore, Dec. 2022, pp. 192–197. <a href="https://ieeexplore.ieee.org/document/9824531" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('ying2022icccas')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C23]</span>Y. Lian, <strong>M. Ying</strong>, S. Wang, and Y. Wang, "An Efficient Maximum Subcarrier Power Detection Scheme for OFDM-IM Systems," <em>2023 International Wireless Communications and Mobile Computing (IWCMC)</em>, Marrakesh, Morocco, Jun. 2023, pp. 258–263. <a href="https://ieeexplore.ieee.org/document/10182569" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('lian2023iwcmc')" class="bib-link">[BibTeX]</a></li>
 
         <li><span class="pub-label">[C24]</span>Y. Lian, <strong>M. Ying</strong>, S. Wang, and Y. Wang, "An Efficient Fast Walsh-Hadamard Transform Based OFDM-IM Scheme with Lower PAPR," <em>2023 Wireless Telecommunications Symposium (WTS)</em>, Boston, MA, USA, Apr. 2023, pp. 1–6. <a href="https://ieeexplore.ieee.org/document/10131676" target="_blank">[PDF]</a> <a href="javascript:void(0)" onclick="showBibTeX('lian2023wts')" class="bib-link">[BibTeX]</a></li>
-      </ul>
-      
-      <h3>Patents</h3>
-      <ul class="publication-list">
+        </ul>
+      </div>
+      <div class="pub-group" data-g="patent">
+        <h3>Patents</h3>
+        <ul class="publication-list">
         <li><span class="pub-label">[P1]</span>Theodore S. Rappaport, <strong>Mingjun Ying</strong>, Xinquan Wang, and Dipankar Shakya. "Systems and Methods for Synthesizing a Computer Replica of a Three-Dimensional Environment for Use in Artificial Intelligence Applications." U.S. Patent Application No. 19/693,207, filed May 29, 2026.</li>
 
         <li><span class="pub-label">[P2]</span>Theodore S. Rappaport, <strong>Mingjun Ying</strong>, Marwa Chafii, and Ahmad Bazzi. "Integrated Sensing and Communication Imaging by Channel State Information." U.S. Patent Application No. 19/693,223, filed May 29, 2026.</li>
@@ -436,143 +492,91 @@
         <li><span class="pub-label">[P4]</span>Yongjun Xu, <strong>Mingjun Ying</strong>, and Qianbin Chen. "A Robust Energy Efficiency Optimization Method for RIS-Assisted WPCNs." Chinese Patent CN113613273A, Nov. 5, 2021. <a href="https://patents.google.com/patent/CN113613273A" target="_blank">[Link]</a></li>
 
         <li><span class="pub-label">[P5]</span>Yongjun Xu, <strong>Mingjun Ying</strong>, and Jihua Zhou. "A Robust Resources Allocation Algorithm for RIS-Enhanced WPCNs." Chinese Patent CN113825159A, Dec. 21, 2021. <a href="https://patents.google.com/patent/CN113825159A" target="_blank">[Link]</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2>Industry Experience</h2>
+      <ul class="timeline">
+        <li><strong>6G Wireless and Machine Learning Engineer · <a href="https://www.mediatek.com/" target="_blank">MediaTek USA Inc.</a></strong><span class="when">May 2025 – Aug. 2025</span>
+          <span class="sub">Warren, NJ · Supervisor: Doru Calin, AVP, Head of U.S. 6G Wireless Research Center<br>
+          Contributed to MediaTek's internal ray-tracing tool and validated it against measurements; built automated indoor reconstruction pipelines and simulated outdoor-to-indoor coverage across entire buildings.</span></li>
+        <li><strong>6G Wireless and Machine Learning Engineer · <a href="https://www.mediatek.com/" target="_blank">MediaTek USA Inc.</a></strong><span class="when">May 2024 – Aug. 2024</span>
+          <span class="sub">Warren, NJ · Supervisor: Doru Calin<br>
+          Developed joint beamforming algorithms for terrestrial and non-terrestrial network (TN-NTN) coexistence and interference management.</span></li>
       </ul>
-      
+    </section>
 
-
-
-      <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
+    <!-- HONORS -->
+    <section id="honors">
       <h2>Honors and Awards</h2>
-      <ul>
+      <ul class="plain">
         <li><strong>Best Paper Award</strong>, IEEE Global Communications Conference (GLOBECOM) 2023</li>
         <li><strong>Li Publication Award</strong>, NYU Tandon School of Engineering</li>
-        <li><strong>National Scholarship</strong>, Chinese Government (Top 1%)</li>
         <li><strong>Ernst Weber Fellowship</strong>, Department of Electrical and Computer Engineering, NYU</li>
+        <li><strong>National Scholarship</strong>, Chinese Government (Top 1%)</li>
         <li><strong>Meritorious Winner</strong>, International Mathematical Contest in Modeling (MCM), 2022</li>
         <li><strong>National Second Prize</strong>, Contemporary Undergraduate Mathematical Contest in Modeling, 2021</li>
       </ul>
-
-      <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
-
-      <h2>Professional Activities</h2>
-      <h3>Journal Reviewer</h3>
-      <ul>
-        <li>Proceedings of the IEEE</li>
-        <li>IEEE TWC</li>
-        <li>IEEE TCOM</li>
-        <li>IEEE TAP</li>
-        <li>IEEE TVT</li>
-        <li>IEEE Wireless Communications Magazine</li>
-        <li>IEEE Communications Magazine</li>
-        <li>IEEE Communications Letters</li>
-        <li>IEEE WCL</li>
-        <li>IEEE OJ-COMS</li>
-        <li>China Communications</li>
-      </ul>
-
-      <h3>Technical Program Committee</h3>
-      <ul>
-        <li>TPC Member, IEEE International Conference on Communications (ICC) 2026</li>
-        <li>TPC Member, IEEE Global Communications Conference (GLOBECOM) 2025</li>
-        <li>TPC Reviewer, International Conference on Wireless Communications and Signal Processing (WCSP) 2025</li>
-      </ul>
-
-      <h3>Conference Reviewer</h3>
-      <ul>
-        <li>IEEE Global Communications Conference (GLOBECOM)</li>
-        <li>IEEE International Conference on Communications (ICC)</li>
-        <li>IEEE International Conference on Wireless Communications and Signal Processing (WCSP)</li>
-      </ul>
-
-      <br>
-      <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="95%" color=#987cb9 SIZE=3>
-
-    
     </section>
-    <footer>
-      <p><small>Last updated: Oct. 2026</small></p>
-    </footer>
+
+    <!-- SERVICE -->
+    <section id="service">
+      <h2>Professional Service</h2>
+      <div class="grid2">
+        <div>
+          <h4>Technical Program Committee</h4>
+          <ul class="plain">
+            <li>TPC Member, IEEE ICC 2026</li>
+            <li>TPC Member, IEEE GLOBECOM 2025</li>
+            <li>TPC Reviewer, WCSP 2025</li>
+          </ul>
+          <h4 style="margin-top:14px">Conference Reviewer</h4>
+          <ul class="plain">
+            <li>IEEE GLOBECOM, IEEE ICC, WCSP</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Journal Reviewer</h4>
+          <ul class="plain">
+            <li>Proceedings of the IEEE</li>
+            <li>IEEE TWC, TCOM, TAP, TVT</li>
+            <li>IEEE Wireless Communications Magazine; IEEE Communications Magazine</li>
+            <li>IEEE Communications Letters; IEEE WCL</li>
+            <li>IEEE OJ-COMS; China Communications</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© Mingjun Ying · Last updated: Oct. 2026</footer>
+
+  <!-- video modal -->
+  <div class="modal" id="videoModal" onclick="if(event.target===this)closeModal('videoModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('videoModal')" aria-label="Close">&times;</button>
+      <div id="videoSlot"></div>
+    </div>
   </div>
-  <script src="javascripts/scale.fix.js"></script>
 
-  <style>
-    .pub-label {
-      font-weight: bold;
-      color: #0066cc;
-      margin-right: 8px;
-      font-size: 14px;
-    }
-    .publication-list {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .publication-list li {
-      margin-bottom: 12px;
-    }
-    .bib-link {
-      cursor: pointer;
-      color: #0066cc;
-      text-decoration: none;
-      margin-left: 5px;
-    }
-    .bib-link:hover {
-      text-decoration: underline;
-    }
-    .bib-modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.4);
-    }
-    .bib-modal-content {
-      background-color: #fefefe;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 70%;
-      max-width: 800px;
-      border-radius: 5px;
-    }
-    .bib-close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .bib-close:hover {
-      color: black;
-    }
-    .bib-text {
-      font-family: monospace;
-      background: #f4f4f4;
-      padding: 15px;
-      border-radius: 5px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-size: 12px;
-    }
-    .copy-btn {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .copy-btn:hover {
-      background-color: #0052a3;
-    }
-  </style>
+  <!-- image lightbox -->
+  <div class="modal" id="lightbox" onclick="if(event.target===this)closeModal('lightbox')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('lightbox')" aria-label="Close">&times;</button>
+      <button class="lb-nav lb-prev" onclick="lbStep(-1)" aria-label="Previous">&#8249;</button>
+      <img id="lbImg" alt="">
+      <div class="cap" id="lbCap"></div>
+      <button class="lb-nav lb-next" onclick="lbStep(1)" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
 
-  <div id="bibModal" class="bib-modal">
-    <div class="bib-modal-content">
-      <span class="bib-close">&times;</span>
+  <!-- bibtex modal -->
+  <div class="modal" id="bibModal" onclick="if(event.target===this)closeModal('bibModal')">
+    <div class="modal-box" style="max-width:800px">
+      <button class="modal-close" onclick="closeModal('bibModal')" aria-label="Close">&times;</button>
       <h3>BibTeX Citation</h3>
       <div class="bib-text" id="bibText"></div>
       <button class="copy-btn" onclick="copyBibTeX()">Copy to Clipboard</button>
@@ -885,38 +889,69 @@
     };
 
     function showBibTeX(key) {
-      const modal = document.getElementById('bibModal');
-      const bibText = document.getElementById('bibText');
-      if (bibEntries[key]) {
-        bibText.textContent = bibEntries[key];
-        modal.style.display = 'block';
-      }
+      if (!bibEntries[key]) return;
+      document.getElementById('bibText').textContent = bibEntries[key];
+      document.getElementById('bibModal').classList.add('open');
     }
-
     function copyBibTeX() {
-      const bibText = document.getElementById('bibText').textContent;
-      navigator.clipboard.writeText(bibText).then(() => {
-        alert('BibTeX copied to clipboard!');
-      });
+      navigator.clipboard.writeText(document.getElementById('bibText').textContent)
+        .then(() => { const b = document.querySelector('.copy-btn'); b.textContent = 'Copied!'; setTimeout(() => b.textContent = 'Copy to Clipboard', 1500); });
+    }
+    function openVideo(src, poster) {
+      document.getElementById('videoSlot').innerHTML =
+        '<video controls autoplay playsinline poster="' + poster + '"><source src="' + src + '" type="video/mp4"></video>';
+      document.getElementById('videoModal').classList.add('open');
+    }
+    function openYouTube(id) {
+      document.getElementById('videoSlot').innerHTML =
+        '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      document.getElementById('videoModal').classList.add('open');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      if (id === 'videoModal') document.getElementById('videoSlot').innerHTML = '';
+    }
+    let lbSet = [], lbIdx = 0;
+    function lbShow() {
+      const f = lbSet[lbIdx];
+      document.getElementById('lbImg').src = f.querySelector('img').src;
+      document.getElementById('lbCap').textContent = f.querySelector('figcaption').textContent;
+      document.querySelectorAll('.lb-nav').forEach(b => b.style.display = lbSet.length > 1 ? '' : 'none');
+    }
+    function lbStep(d) { lbIdx = (lbIdx + d + lbSet.length) % lbSet.length; lbShow(); }
+    document.querySelectorAll('.gallery figure').forEach(f => f.addEventListener('click', () => {
+      lbSet = [...f.parentElement.querySelectorAll('figure')]; lbIdx = lbSet.indexOf(f);
+      lbShow(); document.getElementById('lightbox').classList.add('open');
+    }));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeModal('videoModal'); closeModal('bibModal'); closeModal('lightbox'); }
+      if (document.getElementById('lightbox').classList.contains('open')) { if (e.key === 'ArrowLeft') lbStep(-1); if (e.key === 'ArrowRight') lbStep(1); }
+    });
+
+    function toggleNews(btn) {
+      const l = document.getElementById('newsList');
+      l.classList.toggle('show-all');
+      btn.textContent = l.classList.contains('show-all') ? 'Show less ▴' : 'Show all news ▾';
     }
 
-    // Close modal when clicking the X or outside
-    document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('bibModal');
-      const closeBtn = document.querySelector('.bib-close');
+    // publication filters
+    document.querySelectorAll('#pubFilters button').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('#pubFilters button').forEach(x => x.classList.toggle('on', x === b));
+      const f = b.dataset.f;
+      document.querySelectorAll('.pub-group').forEach(g => {
+        const showGroup = f === 'all' || f === 'first' || g.dataset.g === f;
+        g.style.display = showGroup ? '' : 'none';
+        g.querySelectorAll('li').forEach(li => li.classList.toggle('hidden', f === 'first' && !li.classList.contains('first')));
+        if (f === 'first') g.style.display = g.querySelector('li.first') ? '' : 'none';
+      });
+    }));
 
-      closeBtn.onclick = function() {
-        modal.style.display = 'none';
-      }
-
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = 'none';
-        }
-      }
-    });
+    // highlight current section in nav
+    const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    ['about','news','research','publications','experience','honors','service'].forEach(id => obs.observe(document.getElementById(id)));
   </script>
 </body>
-
 </html>
-

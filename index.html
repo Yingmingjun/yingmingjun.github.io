@@ -68,7 +68,7 @@
     .meta { color: var(--muted); font-size: 14px; }
     .proj ul, .earlier ul { margin: 6px 0 10px; padding-left: 20px; font-size: 15.5px; }
     .proj li { margin: 2px 0; }
-    .media { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+    .media { margin: 12px 0; }
     .media video, .media iframe { width: 100%; aspect-ratio: 16/9; border: 0; background: #000; display: block; }
     .media figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 3px; }
     .media figure { margin: 0; }
@@ -117,7 +117,7 @@
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; gap: 16px; }
       .hero img { width: 150px; }
-      .grid2, .media { grid-template-columns: 1fr; }
+      .grid2 { grid-template-columns: 1fr; }
       .g3, .g4, .g5 { grid-template-columns: repeat(2, 1fr); }
       .g5 .wide { grid-column: span 2; }
       .gallery img { height: 115px; }
@@ -213,9 +213,9 @@
         </ul>
         <div class="media">
           <figure><video controls preload="metadata" playsinline poster="fig/HoRAMA_video_poster.jpg"><source src="video/HoRAMA_1080p.mp4" type="video/mp4"></video><figcaption>Video: HoRAMA 3D wireless digital twins</figcaption></figure>
-          <div class="gallery g2" style="margin:0"><figure style="grid-column:span 2"><img loading="lazy" src="fig/web/horama_pipeline.jpg" alt="" style="height:auto;aspect-ratio:16/9"><figcaption>HoRAMA pipeline</figcaption></figure></div>
         </div>
-        <div class="gallery g4">
+        <div class="gallery g5">
+          <figure class="wide"><img loading="lazy" src="fig/web/horama_pipeline.jpg" alt=""><figcaption>HoRAMA pipeline</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/horama_a_raw.jpg" alt=""><figcaption>(a) Raw point cloud</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/horama_b_clean.jpg" alt=""><figcaption>(b) Cleaned point cloud</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/horama_c_seg.jpg" alt=""><figcaption>(c) PTv3 segmentation</figcaption></figure>
@@ -283,6 +283,8 @@
         </ul>
         <div class="media">
           <figure><video controls preload="metadata" playsinline poster="fig/FR1_video_poster.jpg"><source src="video/FR1_3p7GHz_measurement_1080p.mp4" type="video/mp4"></video><figcaption>Video: 3.7 GHz FR1(C) measurement campaign</figcaption></figure>
+        </div>
+        <div class="media">
           <figure><iframe src="https://www.youtube.com/embed/HRhdrwL9KvU" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><figcaption>Video: 6.75 and 16.95 GHz FR3 measurements</figcaption></figure>
         </div>
         <div class="gallery g4">

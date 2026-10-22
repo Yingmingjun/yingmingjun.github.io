@@ -10,144 +10,119 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     :root {
-      --accent: #57068c;
-      --accent-soft: #f3ecf8;
-      --text: #1f2328;
-      --muted: #5c6370;
-      --line: #e5e7eb;
-      --bg: #ffffff;
-      --bg-alt: #f8f8fa;
-      --radius: 10px;
+      --link: #1a4d8f;
+      --nyu: #57068c;
+      --text: #222;
+      --muted: #666;
+      --line: #e3e3e3;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
-    body { margin: 0; background: var(--bg); color: var(--text);
+    html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+    body { margin: 0; background: #fff; color: var(--text);
       font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
     img { max-width: 100%; }
 
-    /* nav */
-    nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.95);
-      backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
-    .nav-inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex;
-      align-items: center; gap: 24px; height: 56px; }
+    nav { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--line); }
+    .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 20px; height: 50px; }
     .brand { font-weight: 700; color: var(--text); white-space: nowrap; }
-    .nav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
+    .nav-links { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; margin-left: auto; }
     .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a { color: var(--muted); padding: 6px 10px; border-radius: 6px; font-size: 14.5px; white-space: nowrap; }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+    .nav-links a { color: var(--muted); font-size: 15px; white-space: nowrap; padding: 13px 0 12px; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a.active { color: var(--text); border-bottom-color: var(--nyu); }
 
-    main { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 44px 0 8px; }
-    h2 { font-size: 26px; margin: 0 0 18px; padding-bottom: 8px; border-bottom: 2px solid var(--accent-soft); }
+    main { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 36px 0 4px; }
+    h2 { font-size: 24px; margin: 0 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
     h3 { font-size: 17px; margin: 0 0 4px; }
+    h4 { margin: 0 0 4px; font-size: 16px; }
 
-    /* hero */
-    .hero { display: grid; grid-template-columns: 220px 1fr; gap: 36px; padding-top: 40px; align-items: start; }
-    .hero img { width: 220px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
-    .hero h1 { font-size: 36px; margin: 0; line-height: 1.2; }
-    .role { font-size: 18px; color: var(--muted); margin: 6px 0 14px; }
-    .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
-    .btn { display: inline-block; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px;
-      font-size: 14px; color: var(--text); background: #fff; }
-    .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn.primary:hover { color: #fff; opacity: .9; }
-    .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 10px 14px;
-      border-radius: 6px; font-weight: 600; margin: 14px 0 0; }
-    .interests { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .tag { font-size: 13px; padding: 2px 10px; border-radius: 999px; background: var(--bg-alt); border: 1px solid var(--line); color: var(--muted); }
+    .hero { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding-top: 32px; align-items: start; }
+    .hero img { width: 200px; border-radius: 4px; }
+    .hero h1 { font-size: 32px; margin: 0; line-height: 1.2; }
+    .role { font-size: 17px; color: var(--muted); margin: 4px 0 12px; }
+    .hero p { margin: 0 0 10px; }
+    .contact { margin: 10px 0 0; }
+    .contact a { font-weight: 600; }
+    .sep { color: #bbb; margin: 0 6px; }
 
-    /* two-column helpers */
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .timeline { list-style: none; padding: 0; margin: 0; }
-    .timeline li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-    .timeline li:last-child { border-bottom: 0; }
+    .timeline li { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 8px 0; }
     .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
     .sub { color: var(--muted); font-size: 14.5px; grid-column: 1 / -1; }
 
-    /* news */
     .news { list-style: none; padding: 0; margin: 0; }
-    .news li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
-    .news .date { color: var(--accent); font-weight: 600; font-size: 14px; padding-top: 1px; }
+    .news li { display: grid; grid-template-columns: 82px 1fr; gap: 10px; padding: 4px 0; }
+    .news .date { font-weight: 600; font-size: 14.5px; }
     .news li.extra { display: none; }
     .news.show-all li.extra { display: grid; }
-    .more { margin-top: 10px; background: none; border: 0; color: var(--accent); cursor: pointer; font-size: 14.5px; padding: 0; }
+    .more { margin-top: 6px; background: none; border: 0; color: var(--link); cursor: pointer; font: inherit; font-size: 14.5px; padding: 0; }
 
-
-    /* research rows */
-    .themes { display: flex; flex-wrap: wrap; gap: 8px; margin: -4px 0 8px; }
-    .themes a { font-size: 14px; padding: 4px 12px; border-radius: 999px; background: var(--bg-alt); border: 1px solid var(--line); color: var(--text); }
-    .themes a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-    h3.theme { font-size: 19px; color: var(--accent); margin: 30px 0 12px; }
-    .proj { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 16px; }
-    .proj-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
-    .proj-head h4 { font-size: 17px; margin: 0; }
-    .meta { color: var(--muted); font-size: 13.5px; }
-    .proj ul, .earlier ul { margin: 8px 0 10px; padding-left: 20px; font-size: 15px; }
-    .proj li { margin: 3px 0; }
+    h3.theme { font-size: 19px; margin: 26px 0 6px; }
+    .proj { padding: 14px 0 18px; border-bottom: 1px solid var(--line); }
+    .proj:last-of-type { border-bottom: 0; }
+    .proj-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; align-items: baseline; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .proj ul, .earlier ul { margin: 6px 0 10px; padding-left: 20px; font-size: 15.5px; }
+    .proj li { margin: 2px 0; }
+    .media { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+    .media video, .media iframe { width: 100%; aspect-ratio: 16/9; border: 0; background: #000; display: block; }
+    .media figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 3px; }
+    .media figure { margin: 0; }
     .gallery { display: grid; gap: 10px; margin: 6px 0 4px; }
     .g2 { grid-template-columns: repeat(2, 1fr); }
     .g3 { grid-template-columns: repeat(3, 1fr); }
     .g4 { grid-template-columns: repeat(4, 1fr); }
     .g5 { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
-    .g3 .wide { grid-column: span 1; }
     .gallery figure { margin: 0; cursor: zoom-in; }
-    .gallery img { width: 100%; height: 150px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 6px; transition: box-shadow .15s; }
+    .gallery img { width: 100%; height: 140px; object-fit: contain; background: #fff; border: 1px solid var(--line); }
     .gallery img.photo { object-fit: cover; }
-    .gallery figure:hover img { box-shadow: 0 3px 12px rgba(0,0,0,.12); }
-    .gallery figcaption { font-size: 12.5px; color: var(--muted); text-align: center; margin-top: 4px; line-height: 1.3; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    .chip { font-size: 13px; padding: 3px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); border: 0; cursor: pointer; font-family: inherit; }
-    .chip:hover { text-decoration: none; filter: brightness(.95); }
-    .earlier { margin-top: 8px; border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 18px; }
-    .earlier > summary { font-weight: 600; cursor: pointer; }
+    .gallery figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 3px; line-height: 1.3; }
+    .plinks { font-size: 15px; margin-top: 6px; }
+    .plinks a { margin-right: 8px; }
+    .earlier { margin-top: 14px; }
+    .earlier > summary { cursor: pointer; color: var(--link); }
     .earlier h4 { margin: 14px 0 2px; font-size: 15.5px; }
-    #lightbox img { width: 100%; max-height: 78vh; object-fit: contain; }
-    #lightbox .cap { text-align: center; color: var(--muted); margin-top: 8px; font-size: 14px; }
-    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); border: 0; background: rgba(255,255,255,.85); font-size: 28px; width: 40px; height: 56px; cursor: pointer; border-radius: 6px; }
-    .lb-prev { left: 8px; } .lb-next { right: 8px; }
 
-    /* publications */
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-    .filters button { font: inherit; font-size: 14px; padding: 5px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; cursor: pointer; color: var(--text); }
-    .filters button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .pub-group h3 { margin: 18px 0 8px; color: var(--muted); font-size: 15px; text-transform: uppercase; letter-spacing: .04em; }
+    .filters { margin-bottom: 10px; font-size: 15px; color: var(--muted); }
+    .filters button { font: inherit; font-size: 15px; background: none; border: 0; padding: 0 2px; cursor: pointer; color: var(--link); }
+    .filters button.on { color: var(--text); font-weight: 700; }
+    .pub-group h3 { margin: 16px 0 6px; }
     .publication-list { list-style: none; padding: 0; margin: 0; }
-    .publication-list li { padding: 8px 0 8px 52px; position: relative; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .publication-list li { padding: 5px 0 5px 50px; position: relative; font-size: 15px; }
     .publication-list li.hidden { display: none; }
-    .pub-label { position: absolute; left: 0; top: 8px; font-weight: 700; color: var(--accent); font-size: 13.5px; }
-    .publication-list a { font-size: 14px; }
+    .pub-label { position: absolute; left: 0; top: 5px; font-weight: 700; font-size: 14px; color: var(--muted); }
     .bib-link { cursor: pointer; margin-left: 4px; }
-    .award { color: #b45309; font-weight: 700; }
+    .award { font-weight: 700; color: #a4161a; }
 
-    /* honors / service */
-    .plain { padding-left: 18px; margin: 6px 0 0; }
-    .plain li { margin: 4px 0; }
-    h4 { margin: 0 0 4px; font-size: 15.5px; }
+    .plain { padding-left: 20px; margin: 4px 0 0; }
+    .plain li { margin: 2px 0; }
 
-    footer { max-width: 1080px; margin: 40px auto 0; padding: 18px 20px 30px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
+    footer { max-width: 1000px; margin: 30px auto 0; padding: 14px 20px 26px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
 
-    /* modals */
-    .modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.55); align-items: center; justify-content: center; padding: 20px; }
+    .modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.6); align-items: center; justify-content: center; padding: 20px; }
     .modal.open { display: flex; }
-    .modal-box { background: #fff; border-radius: var(--radius); max-width: 960px; width: 100%; max-height: 90vh; overflow: auto; padding: 18px; position: relative; }
-    .modal-close { position: absolute; top: 6px; right: 12px; font-size: 26px; border: 0; background: none; cursor: pointer; color: var(--muted); }
-    .modal video, .modal iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 6px; background: #000; }
-    .bib-text { font-family: ui-monospace, Menlo, monospace; background: var(--bg-alt); padding: 14px; border-radius: 6px; white-space: pre-wrap; font-size: 12.5px; }
-    .copy-btn { margin-top: 10px; padding: 7px 16px; background: var(--accent); color: #fff; border: 0; border-radius: 6px; cursor: pointer; }
+    .modal-box { background: #fff; max-width: 1000px; width: 100%; max-height: 92vh; overflow: auto; padding: 16px; position: relative; border-radius: 4px; }
+    .modal-close { position: absolute; top: 4px; right: 10px; font-size: 26px; border: 0; background: none; cursor: pointer; color: var(--muted); }
+    #lightbox img { width: 100%; max-height: 80vh; object-fit: contain; }
+    #lightbox .cap { text-align: center; color: var(--muted); margin-top: 6px; font-size: 14px; }
+    .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); border: 0; background: rgba(255,255,255,.85); font-size: 28px; width: 38px; height: 54px; cursor: pointer; }
+    .lb-prev { left: 6px; } .lb-next { right: 6px; }
+    .bib-text { font-family: ui-monospace, Menlo, monospace; background: #f6f6f6; padding: 12px; white-space: pre-wrap; font-size: 12.5px; }
+    .copy-btn { margin-top: 10px; padding: 6px 14px; border: 1px solid var(--line); background: #fff; cursor: pointer; font: inherit; font-size: 14px; }
 
     @media (max-width: 760px) {
-      .hero { grid-template-columns: 1fr; gap: 18px; text-align: left; }
-      .hero img { width: 160px; }
-      .grid2 { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; gap: 16px; }
+      .hero img { width: 150px; }
+      .grid2, .media { grid-template-columns: 1fr; }
       .g3, .g4, .g5 { grid-template-columns: repeat(2, 1fr); }
       .g5 .wide { grid-column: span 2; }
-      .gallery img { height: 120px; }
+      .gallery img { height: 115px; }
       .brand { display: none; }
       .nav-links { margin-left: 0; }
-      .news li { grid-template-columns: 80px 1fr; }
     }
   </style>
 </head>
@@ -176,26 +151,16 @@
       <div>
         <h1>Mingjun Ying</h1>
         <div class="role">Ph.D. Candidate, <a href="https://wireless.engineering.nyu.edu/" target="_blank">NYU WIRELESS</a>, New York University</div>
-        <p style="margin:0">I am a Ph.D. candidate in Electrical and Computer Engineering at NYU WIRELESS, advised by
+        <p>I am a Ph.D. candidate in Electrical and Computer Engineering at NYU WIRELESS, advised by
           <a href="https://engineering.nyu.edu/faculty/theodore-rappaport" target="_blank">Prof. Theodore S. Rappaport</a>.
           My research builds site-specific wireless digital twins: material-aware 3D reconstruction, calibrated ray tracing (NYURay),
           and upper mid-band channel measurement and modeling for 6G.</p>
-        <div class="interests">
-          <span class="tag">Wireless ray tracing</span>
-          <span class="tag">3D reconstruction &amp; digital twins</span>
-          <span class="tag">Mid-band channel modeling</span>
-          <span class="tag">AI for wireless</span>
-          <span class="tag">RIS</span>
-          <span class="tag">Energy efficiency (Waste Factor)</span>
+        <p>Research interests: wireless ray tracing, 3D reconstruction and digital twins, mid-band channel measurement and modeling, AI for wireless, RIS, and energy efficiency (Waste Factor).</p>
+        <p><strong>I am seeking full-time industry, postdoctoral, and internship positions starting in 2027.</strong></p>
+        <div class="contact">
+          Email: yingmingjun [AT] nyu [DOT] edu<br>
+          <a href="data/CV_Mingjun_YING.pdf" target="_blank">CV</a><span class="sep">/</span><a href="https://scholar.google.com/citations?user=aY6IANwAAAAJ&hl=en" target="_blank">Google Scholar</a><span class="sep">/</span><a href="https://github.com/Yingmingjun" target="_blank">GitHub</a><span class="sep">/</span><a href="https://www.linkedin.com/in/mingjun-ying-8a590a24a/" target="_blank">LinkedIn</a>
         </div>
-        <div class="links">
-          <a class="btn primary" href="data/CV_Mingjun_YING.pdf" target="_blank">CV</a>
-          <a class="btn" href="https://scholar.google.com/citations?user=aY6IANwAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a class="btn" href="https://github.com/Yingmingjun" target="_blank">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/mingjun-ying-8a590a24a/" target="_blank">LinkedIn</a>
-          <span class="btn" style="cursor:default">yingmingjun [AT] nyu [DOT] edu</span>
-        </div>
-        <div class="callout">I am seeking full-time industry, postdoctoral, and internship positions starting in 2027.</div>
       </div>
     </section>
 
@@ -234,12 +199,6 @@
     <!-- RESEARCH -->
     <section id="research">
       <h2>Research</h2>
-      <div class="themes">
-        <a href="#theme-twin">Wireless Digital Twins &amp; Ray Tracing</a>
-        <a href="#theme-channel">Channel Measurement &amp; Modeling</a>
-        <a href="#theme-theory">Energy Efficiency &amp; Information Theory</a>
-      </div>
-
       <h3 class="theme" id="theme-twin">Wireless Digital Twins &amp; Ray Tracing</h3>
 
       <article class="proj">
@@ -252,17 +211,19 @@
           <li>MASt3R-SLAM point clouds, PTv3 semantic segmentation, and Qwen3-VL material labeling.</li>
           <li>Validated at 6.75 and 16.95 GHz over 12 TX-RX links in a 700 m² factory with NYURay; RMSE comparable to a hand-built model.</li>
         </ul>
-        <div class="gallery g5">
-          <figure class="wide"><img loading="lazy" src="fig/web/horama_pipeline.jpg" alt=""><figcaption>HoRAMA pipeline</figcaption></figure>
+        <div class="media">
+          <figure><video controls preload="metadata" playsinline poster="fig/HoRAMA_video_poster.jpg"><source src="video/HoRAMA_1080p.mp4" type="video/mp4"></video><figcaption>Video: HoRAMA 3D wireless digital twins</figcaption></figure>
+          <div class="gallery g2" style="margin:0"><figure style="grid-column:span 2"><img loading="lazy" src="fig/web/horama_pipeline.jpg" alt="" style="height:auto;aspect-ratio:16/9"><figcaption>HoRAMA pipeline</figcaption></figure></div>
+        </div>
+        <div class="gallery g4">
           <figure><img loading="lazy" src="fig/web/horama_a_raw.jpg" alt=""><figcaption>(a) Raw point cloud</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/horama_b_clean.jpg" alt=""><figcaption>(b) Cleaned point cloud</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/horama_c_seg.jpg" alt=""><figcaption>(c) PTv3 segmentation</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/horama_d_model.jpg" alt=""><figcaption>(d) RT-ready 3D model</figcaption></figure>
         </div>
-        <div class="chips">
-          <a class="chip" href="https://arxiv.org/pdf/2602.12942" target="_blank">Paper (ICC 2026)</a>
-          <a class="chip" href="data/HoRAMA_poster.pdf" target="_blank">Poster</a>
-          <button class="chip" onclick="openVideo('video/HoRAMA_1080p.mp4','fig/HoRAMA_video_poster.jpg')">▶ Video</button>
+        <div class="plinks">
+          <a href="https://arxiv.org/pdf/2602.12942" target="_blank">[Paper (ICC 2026)]</a>
+          <a href="data/HoRAMA_poster.pdf" target="_blank">[Poster]</a>
         </div>
       </article>
 
@@ -281,10 +242,10 @@
           <figure><img loading="lazy" src="fig/web/sparc_pdp.jpg" alt=""><figcaption>SPARC: calibrated PDP vs. measurement</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/sparc_rmse.jpg" alt=""><figcaption>SPARC: RMSE vs. baselines</figcaption></figure>
         </div>
-        <div class="chips">
-          <a class="chip" href="https://arxiv.org/pdf/2507.22027" target="_blank">npj Wireless Technology 2026</a>
-          <a class="chip" href="https://arxiv.org/pdf/2609.06077" target="_blank">SPARC (GLOBECOM 2026)</a>
-          <a class="chip" href="https://arxiv.org/pdf/2509.11923" target="_blank">Location optimization (GLOBECOM 2025)</a>
+        <div class="plinks">
+          <a href="https://arxiv.org/pdf/2507.22027" target="_blank">[npj Wireless Technology 2026]</a>
+          <a href="https://arxiv.org/pdf/2609.06077" target="_blank">[SPARC (GLOBECOM 2026)]</a>
+          <a href="https://arxiv.org/pdf/2509.11923" target="_blank">[Location optimization (GLOBECOM 2025)]</a>
         </div>
       </article>
 
@@ -302,9 +263,9 @@
           <figure><img loading="lazy" src="fig/web/ris_scene.jpg" alt=""><figcaption>Ray-traced MetroTech scenario</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/ris_coverage.jpg" alt=""><figcaption>Indoor rate map without / with RIS</figcaption></figure>
         </div>
-        <div class="chips">
-          <a class="chip" href="https://arxiv.org/pdf/2610.03887" target="_blank">Paper (Asilomar 2026)</a>
-          <a class="chip" href="data/PRIMO_RIS_poster.pdf" target="_blank">Poster</a>
+        <div class="plinks">
+          <a href="https://arxiv.org/pdf/2610.03887" target="_blank">[Paper (Asilomar 2026)]</a>
+          <a href="data/PRIMO_RIS_poster.pdf" target="_blank">[Poster]</a>
         </div>
       </article>
 
@@ -320,20 +281,22 @@
           <li>3.7 GHz FR1(C) campaigns in UMi, InH, and InF with a 1 GHz sliding-correlator channel sounder (ICC 2027, in submission).</li>
           <li>Statistical channel models and a machine-readable point-data format for sharing measurements across institutions.</li>
         </ul>
+        <div class="media">
+          <figure><video controls preload="metadata" playsinline poster="fig/FR1_video_poster.jpg"><source src="video/FR1_3p7GHz_measurement_1080p.mp4" type="video/mp4"></video><figcaption>Video: 3.7 GHz FR1(C) measurement campaign</figcaption></figure>
+          <figure><iframe src="https://www.youtube.com/embed/HRhdrwL9KvU" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><figcaption>Video: 6.75 and 16.95 GHz FR3 measurements</figcaption></figure>
+        </div>
         <div class="gallery g4">
           <figure><img class="photo" loading="lazy" src="fig/web/fr1_f12.jpg" alt=""><figcaption>3.7 GHz sliding-correlator sounder</figcaption></figure>
           <figure><img class="photo" loading="lazy" src="fig/web/fr1_f17.jpg" alt=""><figcaption>UMi LOS/NLOS measurements</figcaption></figure>
           <figure><img class="photo" loading="lazy" src="fig/web/fr1_f32.jpg" alt=""><figcaption>Indoor factory (InF) campaign</figcaption></figure>
           <figure><img class="photo" loading="lazy" src="fig/web/fr1_f37.jpg" alt=""><figcaption>Long-range UMi routes up to 1 km</figcaption></figure>
         </div>
-        <div class="chips">
-          <a class="chip" href="https://arxiv.org/pdf/2410.17539" target="_blank">UMi</a>
-          <a class="chip" href="https://arxiv.org/pdf/2405.01358" target="_blank">InH</a>
-          <a class="chip" href="https://arxiv.org/pdf/2411.03565" target="_blank">InF</a>
-          <a class="chip" href="https://arxiv.org/pdf/2409.19873" target="_blank">Point-Data</a>
-          <a class="chip" href="https://arxiv.org/pdf/2405.01362" target="_blank">Penetration</a>
-          <button class="chip" onclick="openVideo('video/FR1_3p7GHz_measurement_1080p.mp4','fig/FR1_video_poster.jpg')">▶ 3.7 GHz video</button>
-          <button class="chip" onclick="openYouTube('HRhdrwL9KvU')">▶ FR3 video</button>
+        <div class="plinks">
+          <a href="https://arxiv.org/pdf/2410.17539" target="_blank">[UMi]</a>
+          <a href="https://arxiv.org/pdf/2405.01358" target="_blank">[InH]</a>
+          <a href="https://arxiv.org/pdf/2411.03565" target="_blank">[InF]</a>
+          <a href="https://arxiv.org/pdf/2409.19873" target="_blank">[Point-Data]</a>
+          <a href="https://arxiv.org/pdf/2405.01362" target="_blank">[Penetration]</a>
         </div>
       </article>
 
@@ -355,10 +318,10 @@
           <figure><img loading="lazy" src="fig/web/wf_mimo.jpg" alt=""><figcaption>Waste Factor for MIMO</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/wf_tradeoff.jpg" alt=""><figcaption>Data rate vs. Waste Factor trade-off</figcaption></figure>
         </div>
-        <div class="chips">
-          <a class="chip" href="https://ieeexplore.ieee.org/document/10436843" target="_blank">GLOBECOM 2023</a>
-          <a class="chip" href="https://ieeexplore.ieee.org/document/10604822" target="_blank">OJ-COMS 2024</a>
-          <a class="chip" href="https://arxiv.org/pdf/2405.01352" target="_blank">MISO/MIMO (GLOBECOM 2024)</a>
+        <div class="plinks">
+          <a href="https://ieeexplore.ieee.org/document/10436843" target="_blank">[GLOBECOM 2023]</a>
+          <a href="https://ieeexplore.ieee.org/document/10604822" target="_blank">[OJ-COMS 2024]</a>
+          <a href="https://arxiv.org/pdf/2405.01352" target="_blank">[MISO/MIMO (GLOBECOM 2024)]</a>
         </div>
       </article>
 
@@ -376,9 +339,9 @@
           <figure><img loading="lazy" src="fig/web/adv_capacity.jpg" alt=""><figcaption>Capacity vs. flip probability</figcaption></figure>
           <figure><img loading="lazy" src="fig/web/adv_ber.jpg" alt=""><figcaption>BER with LDPC codes</figcaption></figure>
         </div>
-        <div class="chips">
-          <a class="chip" href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">Paper (Asilomar 2024)</a>
-          <a class="chip" href="https://github.com/Yingmingjun/AdversarialCapacity" target="_blank">Code</a>
+        <div class="plinks">
+          <a href="https://ieeexplore.ieee.org/abstract/document/10942906" target="_blank">[Paper (Asilomar 2024)]</a>
+          <a href="https://github.com/Yingmingjun/AdversarialCapacity" target="_blank">[Code]</a>
         </div>
       </article>
 
@@ -405,11 +368,11 @@
     <!-- PUBLICATIONS -->
     <section id="publications">
       <h2>Publications &amp; Patents</h2>
-      <div class="filters" id="pubFilters">
-        <button class="on" data-f="all">All</button>
-        <button data-f="first">First-author</button>
-        <button data-f="journal">Journals (6)</button>
-        <button data-f="conf">Conferences (24)</button>
+      <div class="filters" id="pubFilters">Show:
+        <button class="on" data-f="all">All</button> ·
+        <button data-f="first">First-author</button> ·
+        <button data-f="journal">Journals (6)</button> ·
+        <button data-f="conf">Conferences (24)</button> ·
         <button data-f="patent">Patents (5)</button>
       </div>
       <div class="pub-group" data-g="journal">
@@ -553,14 +516,6 @@
   </main>
 
   <footer>© Mingjun Ying · Last updated: Oct. 2026</footer>
-
-  <!-- video modal -->
-  <div class="modal" id="videoModal" onclick="if(event.target===this)closeModal('videoModal')">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('videoModal')" aria-label="Close">&times;</button>
-      <div id="videoSlot"></div>
-    </div>
-  </div>
 
   <!-- image lightbox -->
   <div class="modal" id="lightbox" onclick="if(event.target===this)closeModal('lightbox')">
@@ -897,19 +852,8 @@
       navigator.clipboard.writeText(document.getElementById('bibText').textContent)
         .then(() => { const b = document.querySelector('.copy-btn'); b.textContent = 'Copied!'; setTimeout(() => b.textContent = 'Copy to Clipboard', 1500); });
     }
-    function openVideo(src, poster) {
-      document.getElementById('videoSlot').innerHTML =
-        '<video controls autoplay playsinline poster="' + poster + '"><source src="' + src + '" type="video/mp4"></video>';
-      document.getElementById('videoModal').classList.add('open');
-    }
-    function openYouTube(id) {
-      document.getElementById('videoSlot').innerHTML =
-        '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-      document.getElementById('videoModal').classList.add('open');
-    }
     function closeModal(id) {
       document.getElementById(id).classList.remove('open');
-      if (id === 'videoModal') document.getElementById('videoSlot').innerHTML = '';
     }
     let lbSet = [], lbIdx = 0;
     function lbShow() {
@@ -924,7 +868,7 @@
       lbShow(); document.getElementById('lightbox').classList.add('open');
     }));
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { closeModal('videoModal'); closeModal('bibModal'); closeModal('lightbox'); }
+      if (e.key === 'Escape') { closeModal('bibModal'); closeModal('lightbox'); }
       if (document.getElementById('lightbox').classList.contains('open')) { if (e.key === 'ArrowLeft') lbStep(-1); if (e.key === 'ArrowRight') lbStep(1); }
     });
 

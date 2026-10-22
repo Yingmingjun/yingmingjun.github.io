@@ -121,6 +121,8 @@
       .g3, .g4, .g5 { grid-template-columns: repeat(2, 1fr); }
       .g5 .wide { grid-column: span 2; }
       .gallery img { height: 115px; }
+      .timeline li { grid-template-columns: 1fr; gap: 0; }
+      .publication-list li { padding-left: 44px; }
       .brand { display: none; }
       .nav-links { margin-left: 0; }
     }
@@ -134,6 +136,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#news">News</a>
+        <a href="#education">Education</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
@@ -166,8 +169,6 @@
 
     <!-- NEWS + EDUCATION -->
     <section id="news">
-      <div class="grid2">
-        <div>
           <h2>News</h2>
           <ul class="news" id="newsList">
             <li><span class="date">Oct. 2026</span><span>U.S. national-phase patent application filed on Waste Factor based power reduction.</span></li>
@@ -181,8 +182,10 @@
             <li class="extra"><span class="date">Dec. 2023</span><span>Best Paper Award at IEEE GLOBECOM 2023 for Waste Factor.</span></li>
           </ul>
           <button class="more" onclick="toggleNews(this)">Show all news ▾</button>
-        </div>
-        <div id="education">
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
           <h2>Education</h2>
           <ul class="timeline">
             <li><strong>Ph.D., Electrical and Computer Engineering</strong><span class="when">Sept. 2023 – Present</span>
@@ -192,8 +195,6 @@
             <li><strong>B.E. (Hons.), Communication Engineering</strong><span class="when">Sept. 2019 – Jun. 2023</span>
               <span class="sub"><a href="http://english.cqupt.edu.cn/" target="_blank">CQUPT</a></span></li>
           </ul>
-        </div>
-      </div>
     </section>
 
     <!-- RESEARCH -->
@@ -895,7 +896,7 @@
     const obs = new IntersectionObserver(entries => entries.forEach(e => {
       if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
     }), { rootMargin: '-45% 0px -50% 0px' });
-    ['about','news','research','publications','experience','honors','service'].forEach(id => obs.observe(document.getElementById(id)));
+    ['about','news','education','research','publications','experience','honors','service'].forEach(id => obs.observe(document.getElementById(id)));
   </script>
 </body>
 </html>
